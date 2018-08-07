@@ -1,5 +1,4 @@
 program/__pycache__
 program/build
 program/dist
-program/testmake.spec
-testmake.spec
+program/log

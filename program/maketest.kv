@@ -1,0 +1,38 @@
+#:kivy 1.10.1
+#:import kivy kivy
+
+<Screen>:
+    #size: (500, 500)
+
+    Button:
+        pos: (0, 550)
+        id: btn
+        text: 'Subject'
+        on_release: dropdown.open(self)
+        size_hint: (.7, .1)
+
+    Widget:
+        on_parent: dropdown.dismiss()
+
+    DropDown:
+
+        id: dropdown
+        on_select: btn.text = 'Selected value: {}'.format(args[1])
+
+        Button:
+            text: 'Value A'
+            size_hint_y: None
+            height: '48dp'
+            on_release: dropdown.select('A')
+
+        Button:
+            text: 'Value B'
+            size_hint_y: None
+            height: '48dp'
+            on_release: dropdown.select('B')
+
+        Button:
+            text: 'Value C'
+            size_hint_y: None
+            height: '48dp'
+            on_release: dropdown.select('C')
