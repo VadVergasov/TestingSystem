@@ -36,3 +36,38 @@
             size_hint_y: None
             height: '48dp'
             on_release: dropdown.select('C')
+
+    ImageButton:
+
+        id: lngbtn
+        source: 'data\icon\en.png'
+        pos: (650, 500)
+        size_hint: (.2, .2)
+        on_release: language.open(self)
+
+    Widget:
+
+        on_parent: language.dismiss()
+
+    DropDown:
+        
+        id: language
+        on_select: lngimg.source = args[1]
+
+        ImageButton:
+
+            id: lng1
+            source: 'data\\icon\\ru.png'
+            size_hint_y: None
+            height: '96dp'
+
+        Label:
+            size_hint_y: None
+            height: '10dp'
+
+        ImageButton:
+
+            id: lng2
+            source: 'data\\icon\\by.png'
+            size_hint_y: None
+            height: '96dp'

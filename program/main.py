@@ -19,12 +19,12 @@ from kivy.uix.behaviors import ButtonBehavior
 
 Config.set('kivy', 'log_dir', os.getcwd()+"\\log")
 Config.set('kivy', 'desktop', 1)
+Config.set('kivy', 'window_icon', os.getcwd()+'\\data\\icon\\favicon.ico')
 Config.set('graphics', 'max_fps', 60)
 Config.write()
 
-class ImageButton(ButtonBehavior, Image):  
-    def on_press(self):  
-        print ('pressed')
+class ImageButton(ButtonBehavior, Image):
+    pass
 
 class Screen(FloatLayout):
     pass

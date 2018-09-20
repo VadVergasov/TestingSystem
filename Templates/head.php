@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title><?php echo($title);?></title>
+        <link rel="shortcut icon" href="../images/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="http://<?php echo $_SERVER['SERVER_NAME'];?>/css/main.css"/>
         <script src="http://<?php echo $_SERVER['SERVER_NAME'];?>/js/jquery.js"></script>
@@ -40,15 +41,16 @@
         <div id="site" hidden>
             <nav id="nav">
                 <ul>
-                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>">Главная</a></li>
-                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Pages/tests.php">Тесты</a>
+                    <li id="logo"><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>" style="padding: 0;"><img alt="Logo" src="../images/logo.png"></a></li>
+                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>" class="nava">Главная</a></li>
+                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Pages/tests.php" class="nava">Тесты</a>
                         <ul>
                             <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Bel/main.php">Белорусский</a></li>
                             <li><a href="">Математика</a></li>        
                             <li><a href="">Русский</a></li>
                         </ul>
                     </li>
-                    <li style="float: right;"><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Pages/about.php">Про систему</a></li>
+                    <li style="float: right;"><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Pages/about.php" class="nava">Про систему</a></li>
                 </ul>
             </nav>
             <div id="content" style="width:100%;">
