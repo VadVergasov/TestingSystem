@@ -19,6 +19,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
+from kivy.uix.label import Label
 
 import gettext
 subject = None
@@ -78,6 +79,8 @@ makescreen = Screen(name="Making")
 def Lang():
     selected = None
     layout = FloatLayout()
+    label = Label(text="Language/Мова/Язык", size_hint=(.5, .1), pos_hint={'x': .25, 'y': .6})
+    layout.add_widget(label)
     lng1 = Button(text='English', size_hint=(.5, .1), pos_hint={'x': .25, 'y': .5})
     lng1.bind(on_release=select)
     lng2 = Button(text='Беларуская', size_hint=(.5, .1), pos_hint={'x': .25, 'y': .4})
@@ -93,11 +96,14 @@ def Lang():
 def Subject():
     layout = FloatLayout(size=(300, 300))
     
+    label = Label(text=_("Choose subject"), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .9})
+    layout.add_widget(label)
+
     #Subject buttons
-    sub1 = Button(text=_('English'), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .9})
-    sub2 = Button(text=_('Russian'), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .8})
-    sub3 = Button(text=_('Belarussian'), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .7})
-    sub4 = Button(text=_('Math'), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .6})
+    sub1 = Button(text=_('English'), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .8})
+    sub2 = Button(text=_('Russian'), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .7})
+    sub3 = Button(text=_('Belarussian'), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .6})
+    sub4 = Button(text=_('Math'), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .5})
 
     #binding subject buttons
     sub1.bind(on_release=subjectChange)

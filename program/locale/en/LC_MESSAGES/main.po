@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-09-23 11:56+0300\n"
-"PO-Revision-Date: 2018-09-23 12:00+0300\n"
+"POT-Creation-Date: 2018-09-27 10:58+0300\n"
+"PO-Revision-Date: 2018-09-27 10:58+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,34 +17,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en\n"
 
-#: main.py:38 main.py:100
+#: main.py:39 main.py:106
 msgid "Math"
 msgstr ""
 
-#: main.py:40 main.py:98
+#: main.py:41 main.py:104
 msgid "Russian"
 msgstr ""
 
-#: main.py:42 main.py:99
+#: main.py:43 main.py:105
 msgid "Belarussian"
 msgstr ""
 
-#: main.py:44 main.py:97
+#: main.py:45 main.py:103
 msgid "English"
 msgstr ""
 
-#: main.py:108
+#: main.py:99
+msgid "Choose subject"
+msgstr ""
+
+#: main.py:114
 msgid "Back"
 msgstr ""
 
-#: main.py:119
+#: main.py:125
 msgid "Choose type"
 msgstr ""
 
-#: main.py:120
+#: main.py:126
 msgid "Close"
 msgstr ""
 
-#: main.py:129
+#: main.py:128
+msgid "Question with answer variants"
+msgstr ""
+
+#: main.py:137
 msgid "More"
 msgstr ""
