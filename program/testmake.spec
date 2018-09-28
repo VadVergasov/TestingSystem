@@ -5,7 +5,7 @@ from kivy.deps import sdl2, glew
 block_cipher = None
 
 a = Analysis(['main.py'],
-             pathex=['D:\\OSPanel\\domains\\TestingSystem\\program'],
+             pathex=['D:\\Vadim\\OSPanel\\domains\\TestingSystem\\program'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -24,8 +24,8 @@ exe = EXE(pyz,
           debug=False,
           strip=False,
           upx=True,
-          console=True )
-coll = COLLECT(exe, Tree('D:\\OSPanel\\domains\\TestingSystem\\program'),
+          console=False)
+coll = COLLECT(exe, Tree('D:\\Vadim\\OSPanel\\domains\\TestingSystem\\program'),
                a.binaries,
                a.zipfiles,
                a.datas,

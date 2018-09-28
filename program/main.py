@@ -26,7 +26,9 @@ subject = None
 lng = None
 _ = None
 
-Config.set('kivy', 'log_dir', os.getcwd()+"\log")
+Config.set('kivy', 'log_dir', os.getcwd()+"\\log")
+Config.set('kivy', 'log_level', 'warning')
+Config.set('kivy', 'log_maxfiles', 10)
 Config.set('kivy', 'desktop', 1)
 Config.set('kivy', 'window_icon', os.getcwd()+'\\data\\icon\\favicon.ico')
 Config.set('graphics', 'max_fps', 60)
@@ -62,11 +64,13 @@ def changeScreen(screen, *args):
 
 def select(button):
     changeLanguage(button.text)
+    subscreen.clear_widgets()
     changeScreen("Subject")
     Subject()
 
 def subjectChange(button):
     changeSubject(button.text)
+    makescreen.clear_widgets()
     changeScreen("Making")
     Make()
 
@@ -77,7 +81,6 @@ makescreen = Screen(name="Making")
 
 #First screen
 def Lang():
-    selected = None
     layout = FloatLayout()
     label = Label(text="Language/Мова/Язык", size_hint=(.5, .1), pos_hint={'x': .25, 'y': .6})
     layout.add_widget(label)
@@ -96,6 +99,7 @@ def Lang():
 def Subject():
     layout = FloatLayout(size=(300, 300))
     
+    #Label
     label = Label(text=_("Choose subject"), size_hint=(.5, .1), pos_hint={'x': .25, 'y': .9})
     layout.add_widget(label)
 
@@ -134,6 +138,9 @@ def Make():
     view = ScrollView(size_hint=(1, None), size=(Window.width, Window.height))
     layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
     layout.bind(minimum_height=layout.setter('height'))
+    back = Button(text=_("Back"), size_hint_y=None, height=60)
+    back.bind(on_release=partial(changeScreen, "Subject"))
+    layout.add_widget(back)
     new = Button(text=_('More'), size_hint_y=None, height=40)
     new.bind(on_release=addQuest)
     layout.add_widget(new)
