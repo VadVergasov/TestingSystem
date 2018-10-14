@@ -17,5 +17,6 @@ rmdir dist\MakeTest\docutils /s /Q
 del dist\MakeTest\*.txt /s /Q
 del dist\MakeTest\libopenblas.CSRRD7HKRKC3T3YXA7VY7TAZGLSWDKW6.gfortran-win_amd64.dll /Q
 del dist\MakeTest\make.bat
+del dist\MakeTest\make.sh
 del dist\MakeTest\main.py
 del dist\MakeTest\testmake.spec

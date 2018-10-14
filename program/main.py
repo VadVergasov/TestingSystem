@@ -20,6 +20,7 @@ from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
 
 import gettext
 subject = None
@@ -124,12 +125,31 @@ def Subject():
     layout.add_widget(back)
     subscreen.add_widget(layout)
 
+def addVariants(btn):
+    layout = GridLayout(cols=1, rows=6, spacing=5)
+    popup = Popup(title=_('Configuring question'), content=layout, size_hint=(None, None), size=(600, 400), auto_dismiss=False)
+    label = Label(text=_('Write question here:'), size_hint=(1, .2))
+    text = TextInput()
+    number = Label(text=_('Number of answers:'), size_hint=(1, .2))
+    num = TextInput(input_filter='int', size_hint=(1, .4))
+    button = Button(text=_('Close'), size_hint=(1, .5))
+    button.bind(on_release=popup.dismiss)
+    nxt = Button(text=_('Next'), size_hint=(1, .5))
+    layout.add_widget(label)
+    layout.add_widget(text)
+    layout.add_widget(number)
+    layout.add_widget(num)
+    layout.add_widget(nxt)
+    layout.add_widget(button)
+    popup.open()
+
 def addQuest(btn):
     layout = GridLayout(cols=1, spacing=5, size_hint_y=None)
     popup = Popup(title=_('Choose type'), content=layout, size_hint=(None, None), size=(400, 400), auto_dismiss=False)
     button = Button(text=_('Close'), size_hint_y=None, height=40)
     button.bind(on_release=popup.dismiss)
     variants = Button(text=_('Question with answer variants'), size_hint_y=None, height=40)
+    variants.bind(on_release=addVariants)
     layout.add_widget(variants)
     layout.add_widget(button)
     popup.open()
