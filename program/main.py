@@ -20,6 +20,7 @@ from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
+from kivy.uix.accordion import Accordion, AccordionItem
 
 import gettext
 subject = None
@@ -65,19 +66,20 @@ def changeScreen(screen, *args):
 def select(button):
     changeLanguage(button.text)
     subscreen.clear_widgets()
-    changeScreen("Subject")
     Subject()
+    changeScreen("Subject")
 
 def subjectChange(button):
     changeSubject(button.text)
     makescreen.clear_widgets()
-    changeScreen("Making")
     Make()
+    changeScreen("Making")
 
 #All screens
 langscreen = Screen(name="Lang")
 subscreen = Screen(name="Subject")
 makescreen = Screen(name="Making")
+editscreen = Screen(name="Edit")
 
 #First screen
 def Lang():
@@ -124,24 +126,38 @@ def Subject():
     Subject.layout.add_widget(Subject.back)
     subscreen.add_widget(Subject.layout)
 
+def editQuest(inst):
+    editscreen.clear_widgets()
+    view = ScrollView(size_hint=(1, None), size=(Window.width, Window.height))
+    layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
+    layout.bind(minimum_height=layout.setter('height'))
+    id = int(inst.id)
+    quest = Label(text=inst.text, size_hint_y=None)
+    layout.add_widget(quest)
+    for i in range(len(Make.variants[id])):
+        inp = TextInput(height=50, size_hint_y=None)
+        lbl = Label(text=_("Answer number:"+" "+str(i+1)), height=50, size_hint_y=None)
+        layout.add_widget(lbl)
+        layout.add_widget(inp)
+    view.add_widget(layout)
+    editscreen.add_widget(view)
+    changeScreen("Edit")
+
 def addQuestionWithAnswers(txt, num, *args):
-    if not hasattr(Make, 'dropdown'):
-        Make.dropdown = []
-    if not hasattr(Make, 'main_btns'):
-        Make.main_btns = []
     try:
         num=int(num.text)
     except ValueError:
         return
     if len(txt.text) == 0:
         return
-    Make.dropdown.append(DropDown())
-    for i in range(num):
-        btn = TextInput()
-        Make.dropdown[-1].add_widget(btn)
-    Make.main_btns.append(Button(text = txt.text, size_hint_y=None, height = 60))
-    Make.main_btns[-1].bind(on_release=Make.dropdown[-1].open)
-    Make.layout.add_widget(Make.main_btns[-1])
+    if not hasattr(Make, "variants"):
+        Make.variants = []
+    btn = Button(text=txt.text, size_hint_y=None, height=60, id=str(len(Make.variants)))
+    btn.bind(on_release=editQuest)
+    Make.variants.append([""]*num)
+    Make.layout.add_widget(btn)
+    addVariants.popup.dismiss()
+    addQuest.popup.dismiss()
 
 def addVariants(btn):
     addVariants.layout = GridLayout(cols=1, rows=6, spacing=5)
@@ -183,7 +199,6 @@ def Make():
     Make.new = Button(text=_('More'), size_hint_y=None, height=40)
     Make.new.bind(on_release=addQuest)
     Make.layout.add_widget(Make.new)
-    Make.layout = Make.layout
     Make.view.add_widget(Make.layout)
     makescreen.add_widget(Make.view)
 
@@ -193,6 +208,7 @@ Lang()
 sm.add_widget(subscreen)
 sm.add_widget(langscreen)
 sm.add_widget(makescreen)
+sm.add_widget(editscreen)
 
 class MaketestApp(App):
     title = 'Making test'
