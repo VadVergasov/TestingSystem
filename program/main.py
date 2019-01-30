@@ -8,19 +8,16 @@ kivy.require('1.10.1')
 
 from kivy.app import App
 from kivy.config import Config
-from kivy.animation import Animation
 from kivy.core.window import Window
 
 from kivy.uix.popup import Popup
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
-from kivy.uix.accordion import Accordion, AccordionItem
 
 import gettext
 subject = None
@@ -34,6 +31,8 @@ Config.set('kivy', 'desktop', 1)
 Config.set('kivy', 'window_icon', os.getcwd() + '\\data\\icon\\favicon.ico')
 Config.set('graphics', 'max_fps', 60)
 Config.write()
+
+questions = {}
 
 sm = ScreenManager()
 
@@ -126,6 +125,11 @@ def Subject():
     Subject.layout.add_widget(Subject.back)
     subscreen.add_widget(Subject.layout)
 
+def readyQuest(*args):
+    for i in range(len(editQuest.input)):
+        questions[editQuest.quest.text][i] = editQuest.input[i].text
+    print(questions)
+
 def editQuest(inst):
     editscreen.clear_widgets()
     view = ScrollView(size_hint = (1, None), size = (Window.width, Window.height), bar_width = 7)
@@ -135,16 +139,21 @@ def editQuest(inst):
     back = Button(text = _('Back'), size_hint_y = None, height = 60)
     back.bind(on_release = partial(changeScreen, "Making"))
     layout.add_widget(back)
-    quest = Label(text = inst.text, size_hint_y = None)
-    layout.add_widget(quest)
+    editQuest.quest = Label(text = inst.text, size_hint_y = None)
+    layout.add_widget(editQuest.quest)
+    editQuest.input = []
+    if not editQuest.quest.text in questions:
+        questions[editQuest.quest.text] = [""] * len(Make.variants[id])
     for i in range(len(Make.variants[id])):
-        inp = TextInput(height=50, size_hint_y=None)
+        inp = TextInput(height = 50, size_hint_y = None, text=questions[editQuest.quest.text][i])
         lbl = Label(text = _('Answer number:') + " " + str(i + 1), height = 50, size_hint_y = None)
+        editQuest.input.append(inp)
         layout.add_widget(lbl)
         layout.add_widget(inp)
     view.add_widget(layout)
     editscreen.add_widget(view)
     ready = Button(text = _('Ready'), size_hint_y = None, height = 60)
+    ready.bind(on_release=readyQuest)
     layout.add_widget(ready)
     changeScreen("Edit")
 
@@ -170,7 +179,7 @@ def addVariants(btn):
     addVariants.label = Label(text = _('Write question here:'), size_hint = (1, .2))
     addVariants.text = TextInput()
     addVariants.number = Label(text = _('Number of answers:'), size_hint = (1, .2))
-    addVariants.num = TextInput(input_filter = 'int', size_hint = (1, .4))
+    addVariants.num = TextInput(input_filter = 'int', size_hint = (1, .4), multiline=False)
     addVariants.button = Button(text = _('Close'), size_hint = (1, .5))
     addVariants.button.bind(on_release = addVariants.popup.dismiss)
     addVariants.nxt = Button(text = _('Next'), size_hint = (1, .5))
@@ -198,7 +207,7 @@ def Make():
     Make.view = ScrollView(size_hint = (1, None), size = (Window.width, Window.height), bar_width = 7)
     Make.layout = GridLayout(cols = 1, spacing = 10, size_hint_y = None)
     Make.layout.bind(minimum_height = Make.layout.setter('height'))
-    Make.back = Button(text = _("Back"), size_hint_y = None, height = 60)
+    Make.back = Button(text = _('Back'), size_hint_y = None, height = 60)
     Make.back.bind(on_release = partial(changeScreen, "Subject"))
     Make.layout.add_widget(Make.back)
     Make.new = Button(text = _('More'), size_hint_y = None, height = 40)
