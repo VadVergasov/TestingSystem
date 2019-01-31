@@ -1,5 +1,4 @@
--Edited a window for making test
 -Trying to make a html export logic
 -More types for answers are need
--Optimized imports
--Made a save for questions and answers
+-Optimized unused files in build
+-Edited .bat and .sh files for auto build

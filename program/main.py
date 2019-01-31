@@ -129,6 +129,7 @@ def readyQuest(*args):
     for i in range(len(editQuest.input)):
         questions[editQuest.quest.text][i] = editQuest.input[i].text
     print(questions)
+    changeScreen("Making")
 
 def editQuest(inst):
     editscreen.clear_widgets()
