@@ -1,6 +1,5 @@
 -Trying to make a html export logic
 -More types for answers are need
--Optimized unused files in build
--Added main.php for all subjects
--Edited mysql.php for work with table
+-Reworked all build files, no more trash and more smaller shell scripts
+-Added readme
 -Some minor changes
