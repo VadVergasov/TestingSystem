@@ -25,9 +25,10 @@ rm dist/MakeTest/_ctypes.pyd
 rm dist/MakeTest/lib*i*.dll
 rm dist/MakeTest/win32pdh.pyd
 rm dist/MakeTest/unicodedata.pyd
-rm dist/MakeTest/lib*p*g*.dll
+rm dist/MakeTest/lib*p*g-*.dll
 rm dist/MakeTest/libFLAC-8.dll
 rm dist/MakeTest/VCRUNTIME140.dll
 rm dist/MakeTest/ucrtbase.dll
 rm dist/MakeTest/libwebp-7.dll
 rm dist/MakeTest/libogg-0.dll
+rm dist/MakeTest/libmpg123-0.dll

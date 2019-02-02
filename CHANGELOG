@@ -1,5 +1,5 @@
 -Trying to make a html export logic
 -More types for answers are need
--Reworked all build files, no more trash and more smaller shell scripts
--Added readme
--Some minor changes
+-Added translations
+-Fixed issue with build (Build was incorrect)
+-Added batch file to fast make .pot files

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-01-22 11:11+0300\n"
+"POT-Creation-Date: 2019-02-02 22:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,59 +15,67 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: main.py:41 main.py:110
+#: main.py:41 main.py:111
 msgid "Math"
 msgstr ""
 
-#: main.py:43 main.py:108
+#: main.py:43 main.py:109
 msgid "Russian"
 msgstr ""
 
-#: main.py:45 main.py:109
+#: main.py:45 main.py:110
 msgid "Belarussian"
 msgstr ""
 
-#: main.py:47 main.py:107
+#: main.py:47 main.py:108
 msgid "English"
 msgstr ""
 
-#: main.py:103
+#: main.py:104
 msgid "Choose subject"
 msgstr ""
 
-#: main.py:118 main.py:178
+#: main.py:119 main.py:139 main.py:212
 msgid "Back"
 msgstr ""
 
-#: main.py:146
+#: main.py:149
+msgid "Answer number:"
+msgstr ""
+
+#: main.py:155 main.py:217
+msgid "Ready"
+msgstr ""
+
+#: main.py:180
 msgid "Configuring question"
 msgstr ""
 
-#: main.py:147
+#: main.py:181
 msgid "Write question here:"
 msgstr ""
 
-#: main.py:149
+#: main.py:183
 msgid "Number of answers:"
 msgstr ""
 
-#: main.py:151 main.py:166
+#: main.py:185 main.py:200
 msgid "Close"
 msgstr ""
 
-#: main.py:153
+#: main.py:187
 msgid "Next"
 msgstr ""
 
-#: main.py:165
+#: main.py:199
 msgid "Choose type"
 msgstr ""
 
-#: main.py:168
+#: main.py:202
 msgid "Question with answer variants"
 msgstr ""
 
-#: main.py:181
+#: main.py:215
 msgid "More"
 msgstr ""
 

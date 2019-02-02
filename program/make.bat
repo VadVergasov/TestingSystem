@@ -26,9 +26,10 @@ del dist\MakeTest\_ctypes.pyd
 del dist\MakeTest\lib*i*.dll
 del dist\MakeTest\win32pdh.pyd
 del dist\MakeTest\unicodedata.pyd
-del dist\MakeTest\lib*p*g*.dll
+del dist\MakeTest\lib*p*g-*.dll
 del dist\MakeTest\libFLAC-8.dll
 del dist\MakeTest\VCRUNTIME140.dll
 del dist\MakeTest\ucrtbase.dll
 del dist\MakeTest\libwebp-7.dll
 del dist\MakeTest\libogg-0.dll
+del dist\MakeTest\libmpg123-0.dll

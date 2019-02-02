@@ -5,54 +5,78 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-09-27 10:58+0300\n"
-"PO-Revision-Date: 2018-09-27 10:58+0300\n"
+"POT-Creation-Date: 2019-02-02 22:29+0300\n"
+"PO-Revision-Date: 2019-02-02 22:39+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2.1\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en\n"
 
-#: main.py:39 main.py:106
+#: main.py:41 main.py:111
 msgid "Math"
-msgstr ""
+msgstr "Math"
 
-#: main.py:41 main.py:104
+#: main.py:43 main.py:109
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
-#: main.py:43 main.py:105
+#: main.py:45 main.py:110
 msgid "Belarussian"
-msgstr ""
+msgstr "Belarussian"
 
-#: main.py:45 main.py:103
+#: main.py:47 main.py:108
 msgid "English"
-msgstr ""
+msgstr "English"
 
-#: main.py:99
+#: main.py:104
 msgid "Choose subject"
-msgstr ""
+msgstr "Choose subject"
 
-#: main.py:114
+#: main.py:119 main.py:139 main.py:212
 msgid "Back"
-msgstr ""
+msgstr "Back"
 
-#: main.py:125
-msgid "Choose type"
-msgstr ""
+#: main.py:149
+msgid "Answer number:"
+msgstr "Answer number:"
 
-#: main.py:126
+#: main.py:155 main.py:217
+msgid "Ready"
+msgstr "Ready"
+
+#: main.py:180
+msgid "Configuring question"
+msgstr "Configuring question"
+
+#: main.py:181
+msgid "Write question here:"
+msgstr "Write question here:"
+
+#: main.py:183
+msgid "Number of answers:"
+msgstr "Number of answers:"
+
+#: main.py:185 main.py:200
 msgid "Close"
-msgstr ""
+msgstr "Close"
 
-#: main.py:128
+#: main.py:187
+msgid "Next"
+msgstr "Next"
+
+#: main.py:199
+msgid "Choose type"
+msgstr "Choose type"
+
+#: main.py:202
 msgid "Question with answer variants"
-msgstr ""
+msgstr "Question with variants of answers"
 
-#: main.py:137
+#: main.py:215
 msgid "More"
-msgstr ""
+msgstr "More"
