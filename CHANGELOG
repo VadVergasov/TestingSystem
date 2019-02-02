@@ -1,4 +1,6 @@
 -Trying to make a html export logic
 -More types for answers are need
 -Optimized unused files in build
--Edited .bat and .sh files for auto build
+-Added main.php for all subjects
+-Edited mysql.php for work with table
+-Some minor changes

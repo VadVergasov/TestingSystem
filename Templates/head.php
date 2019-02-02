@@ -14,7 +14,7 @@
                     $preloader.attr("hidden", true);
                     $site = $('#site');
                     $site.removeAttr("hidden");
-                }, 1000);
+                }, 500);
             });
         </script>
     </head>
@@ -47,7 +47,8 @@
                         <ul>
                             <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Bel/main.php">Белорусский</a></li>
                             <li><a href="">Математика</a></li>        
-                            <li><a href="">Русский</a></li>
+                            <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Rus/main.php">Русский</a></li>
+                            <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Eng/main.php">Английский</a></li>
                         </ul>
                     </li>
                     <li style="float: right;"><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Pages/about.php" class="nava">Про систему</a></li>

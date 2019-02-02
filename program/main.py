@@ -128,7 +128,6 @@ def Subject():
 def readyQuest(*args):
     for i in range(len(editQuest.input)):
         questions[editQuest.quest.text][i] = editQuest.input[i].text
-    print(questions)
     changeScreen("Making")
 
 def editQuest(inst):
@@ -171,6 +170,8 @@ def addQuestionWithAnswers(txt, num, *args):
     btn.bind(on_release = editQuest)
     Make.variants.append([""] * num)
     Make.layout.add_widget(btn)
+    Make.layout.remove_widget(Make.ready)
+    Make.layout.add_widget(Make.ready)
     addVariants.popup.dismiss()
     addQuest.popup.dismiss()
 
@@ -211,9 +212,11 @@ def Make():
     Make.back = Button(text = _('Back'), size_hint_y = None, height = 60)
     Make.back.bind(on_release = partial(changeScreen, "Subject"))
     Make.layout.add_widget(Make.back)
-    Make.new = Button(text = _('More'), size_hint_y = None, height = 40)
+    Make.new = Button(text = _('More'), size_hint_y = None, height = 60)
     Make.new.bind(on_release = addQuest)
+    Make.ready = Button(text = _('Ready'), size_hint_y = None, height = 60)
     Make.layout.add_widget(Make.new)
+    Make.layout.add_widget(Make.ready)
     Make.view.add_widget(Make.layout)
     makescreen.add_widget(Make.view)
 

@@ -3,8 +3,8 @@
         try{
             $db = 'Tests';
             $host = 'localhost';
-            $username = 'mysql';
-            $password = 'mysql';
+            $username = 'TestingSystem';
+            $password = 'postgresql';
             $dsn = "mysql:host=$host;dbname=$db";
             $opt = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
