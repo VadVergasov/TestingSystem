@@ -1,5 +1,5 @@
 -Trying to make a html export logic
 -More types for answers are need
--Added translations
--Fixed issue with build (Build was incorrect)
--Added batch file to fast make .pot files
+-Some improvements
+-.htaccess added
+-Deleted .php because server and .htaccess fix it

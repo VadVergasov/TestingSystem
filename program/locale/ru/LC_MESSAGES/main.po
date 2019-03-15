@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2019-02-02 22:29+0300\n"
-"PO-Revision-Date: 2019-02-02 22:37+0300\n"
+"PO-Revision-Date: 2019-03-15 13:03+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgstr "Назад"
 
 #: main.py:149
 msgid "Answer number:"
-msgstr "Вопрос номер:"
+msgstr "Ответ номер:"
 
 #: main.py:155 main.py:217
 msgid "Ready"

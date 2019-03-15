@@ -43,15 +43,15 @@
                 <ul>
                     <li id="logo"><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>" style="padding: 0;"><img alt="Logo" src="../images/logo.png"></a></li>
                     <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>" class="nava">Главная</a></li>
-                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Pages/tests.php" class="nava">Тесты</a>
+                    <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Pages/tests" class="nava">Тесты</a>
                         <ul>
-                            <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Bel/main.php">Белорусский</a></li>
+                            <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Bel/main">Белорусский</a></li>
                             <li><a href="">Математика</a></li>        
-                            <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Rus/main.php">Русский</a></li>
-                            <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Eng/main.php">Английский</a></li>
+                            <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Rus/main">Русский</a></li>
+                            <li><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Eng/main">Английский</a></li>
                         </ul>
                     </li>
-                    <li style="float: right;"><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Pages/about.php" class="nava">Про систему</a></li>
+                    <li style="float: right;"><a href="http://<?php echo $_SERVER['SERVER_NAME'];?>/Pages/about" class="nava">Про систему</a></li>
                 </ul>
             </nav>
             <div id="content" style="width:100%;">
