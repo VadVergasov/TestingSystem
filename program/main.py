@@ -46,6 +46,7 @@ Config.write()
 
 # List of question and subject
 questions = {}
+answers = {}
 subject = None
 
 # Manager
@@ -184,6 +185,8 @@ def readyQuest(*args):
     """Confirming Question add"""
     for i in range(len(editQuest.input)):
         questions[editQuest.quest.text][i] = editQuest.input[i].text
+    for i in range(len(editQuest.check)):
+        answers[editQuest.quest.text][i] = editQuest.check[i].active
     changeScreen("Making")
 
 
@@ -208,6 +211,8 @@ def editQuest(inst):
     editQuest.subgrid = []
     if not editQuest.quest.text in questions:
         questions[editQuest.quest.text] = [""] * len(Make.variants[id])
+    if not editQuest.quest.text in answers:
+        answers[editQuest.quest.text] = [False] * len(Make.variants[id])
     for i in range(len(Make.variants[id])):
         subgrid = GridLayout(cols=2, spacing=0, size_hint_y=None, height=50)
         inp = TextInput(
@@ -231,18 +236,31 @@ def editQuest(inst):
 
 
 def readyTest(button):
-    begin = "<?php\nrequire('../mysql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('Bel');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n  if ($row['ID'] == $number) {        \n    $title = $row['Name'];\n      break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
+    """Generates final page."""
+    begin = "<?php\nrequire('../mysql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('Bel');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['ID'] == $number) {\n        $title = $row['Name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
     end = "\n<?php\nrequire('../Templates/foot.php');\n?>"
     doc, tag, text, line = Doc().ttl()
     with tag("form", action="check.php", method="post"):
-        doc.input(name="check", type="checkbox")
+        cur = 0
+        for i in questions:
+            with tag("fieldset"):
+                doc.line("h2", i)
+                with tag("ol"):
+                    for j in range(len(questions[i])):
+                        with tag("li"):
+                            doc.line(
+                                "input",
+                                questions[i][j],
+                                type="checkbox",
+                                name=str(j),
+                                value=i,
+                            )
         doc.stag("input", type="submit", text="send")
+        doc.asis(
+            "<input type='text' hidden='true' value='<?php echo $number;?>' name='number' />"
+        )
     out = open("test.php", "w")
-    out.write(
-        begin
-        + indent(doc.getvalue(), indentation="    ", newline="\r\n", indent_text=True)
-        + end
-    )
+    out.write(begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end)
     out.close()
 
 
