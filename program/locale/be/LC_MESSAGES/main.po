@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-02-02 22:29+0300\n"
-"PO-Revision-Date: 2019-02-02 22:36+0300\n"
+"POT-Creation-Date: 2019-03-19 21:41+0300\n"
+"PO-Revision-Date: 2019-03-19 21:53+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,66 +17,70 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Language: be\n"
 
-#: main.py:41 main.py:111
+#: main.py:85
+msgid "CheckLabel"
+msgstr "Праверце цi запушчан сервер. Паспрабуйце яшчэ раз цI абрацiцесь за дапамогай."
+
+#: main.py:100 main.py:193
 msgid "Math"
 msgstr "Матыматыка"
 
-#: main.py:43 main.py:109
+#: main.py:102 main.py:187
 msgid "Russian"
 msgstr "Руская мова"
 
-#: main.py:45 main.py:110
+#: main.py:104 main.py:190
 msgid "Belarussian"
 msgstr "Беларуская мова"
 
-#: main.py:47 main.py:108
+#: main.py:106 main.py:184
 msgid "English"
 msgstr "Англійская мова"
 
-#: main.py:104
+#: main.py:178
 msgid "Choose subject"
 msgstr "Выберыце прадмет"
 
-#: main.py:119 main.py:139 main.py:212
+#: main.py:203 main.py:236 main.py:376
 msgid "Back"
 msgstr "Назад"
 
-#: main.py:149
+#: main.py:256
 msgid "Answer number:"
 msgstr "Нумар адказу:"
 
-#: main.py:155 main.py:217
+#: main.py:266 main.py:381
 msgid "Ready"
 msgstr "Гатова"
 
-#: main.py:180
+#: main.py:324
 msgid "Configuring question"
 msgstr "Настройка пытання"
 
-#: main.py:181
+#: main.py:330
 msgid "Write question here:"
 msgstr "Напiшыце пытанне тут:"
 
-#: main.py:183
+#: main.py:332
 msgid "Number of answers:"
-msgstr "Колькасць адказаў"
+msgstr "Колькасць адказаў:"
 
-#: main.py:185 main.py:200
+#: main.py:334 main.py:358
 msgid "Close"
 msgstr "Зачыніць"
 
-#: main.py:187
+#: main.py:336
 msgid "Next"
 msgstr "Далей"
 
-#: main.py:199
+#: main.py:352
 msgid "Choose type"
 msgstr "Выберыце тып"
 
-#: main.py:202
+#: main.py:361
 msgid "Question with answer variants"
 msgstr "Пытанне з варыянтамi адказу"
 
-#: main.py:215
+#: main.py:379
 msgid "More"
 msgstr "Яшчэ"

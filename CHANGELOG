@@ -1,4 +1,4 @@
 -Some more export logic is need.
 -More types for answers are need
--Some improvements
--Thinking about DB insert after test make.
+-Trying to make DB insert after test make.
+-Added one string with translation for errors with DB

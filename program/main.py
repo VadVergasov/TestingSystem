@@ -6,6 +6,9 @@ import os, kivy, gettext
 from yattag import Doc
 from yattag import indent
 
+# Import for working with DB when new test was made
+from mysql.connector import MySQLConnection, Error
+
 # This will be used to send parameters when callbacks is called
 from functools import partial
 
@@ -51,6 +54,47 @@ subject = None
 
 # Manager
 sm = ScreenManager()
+
+# All screens
+langscreen = Screen(name="Lang")
+subscreen = Screen(name="Subject")
+makescreen = Screen(name="Making")
+editscreen = Screen(name="Edit")
+readyscreen = Screen(name="Ready")
+
+def lastScreen(*args):
+    '''Trying to get all fields in base'''
+    Ready()
+    sm.current = "Ready"
+    conn=None
+    try:
+        conn = MySQLConnection(
+            host="localhost", database="Tests", user="TestingSystem", password="postgresql"
+        )
+    except Error as e:
+        Ready.label.text += str(e)+"\n "+_("CheckLabel")
+        return
+    number = 0
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT ID FROM "+str(subject))
+        all = cursor.fetchall()
+        if len(all)==0:
+            number =0
+        else:
+            number=len(all)+1
+        cursor.close()
+    except Error as e:
+        Ready.label.text += str(e)+"\n "+_("CheckLabel")
+        return
+
+
+def Ready():
+    Ready.layout = FloatLayout(size=(300, 300))
+    Ready.label = Label(text="", size_hint=(0.5, 0.1), pos_hint={"x": 0.25, "y": 0.6})
+
+    Ready.layout.add_widget(Ready.label)
+    readyscreen.add_widget(Ready.layout)
 
 
 def changeSubject(sub):
@@ -99,13 +143,6 @@ def subjectChange(button):
     makescreen.clear_widgets()
     Make()
     changeScreen("Making")
-
-
-# All screens
-langscreen = Screen(name="Lang")
-subscreen = Screen(name="Subject")
-makescreen = Screen(name="Making")
-editscreen = Screen(name="Edit")
 
 
 def Lang():
@@ -235,7 +272,7 @@ def editQuest(inst):
     changeScreen("Edit")
 
 
-def readyTest(button):
+def readyTest():
     """Generates final page."""
     begin = "<?php\nrequire('../mysql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('Bel');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['ID'] == $number) {\n        $title = $row['Name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
     end = "\n<?php\nrequire('../Templates/foot.php');\n?>"
@@ -262,7 +299,6 @@ def readyTest(button):
     out = open("test.php", "w")
     out.write(begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end)
     out.close()
-
 
 def addQuestionWithAnswers(txt, num, *args):
     """Our popup for configuring question"""
@@ -345,7 +381,7 @@ def Make():
     Make.new = Button(text=_("More"), size_hint_y=None, height=60)
     Make.new.bind(on_release=addQuest)
     Make.ready = Button(text=_("Ready"), size_hint_y=None, height=60)
-    Make.ready.bind(on_release=readyTest)
+    Make.ready.bind(on_release=lastScreen)
     Make.layout.add_widget(Make.new)
     Make.layout.add_widget(Make.ready)
     Make.view.add_widget(Make.layout)
@@ -360,7 +396,7 @@ sm.add_widget(subscreen)
 sm.add_widget(langscreen)
 sm.add_widget(makescreen)
 sm.add_widget(editscreen)
-
+sm.add_widget(readyscreen)
 
 class MaketestApp(App):
     """Main class"""

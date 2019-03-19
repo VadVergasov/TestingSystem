@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-02-02 22:29+0300\n"
-"PO-Revision-Date: 2019-02-02 22:39+0300\n"
+"POT-Creation-Date: 2019-03-19 21:41+0300\n"
+"PO-Revision-Date: 2019-03-19 21:50+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,66 +17,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en\n"
 
-#: main.py:41 main.py:111
+#: main.py:85
+msgid "CheckLabel"
+msgstr "Check if server is running. Try again or ask for help."
+
+#: main.py:100 main.py:193
 msgid "Math"
 msgstr "Math"
 
-#: main.py:43 main.py:109
+#: main.py:102 main.py:187
 msgid "Russian"
 msgstr "Russian"
 
-#: main.py:45 main.py:110
+#: main.py:104 main.py:190
 msgid "Belarussian"
 msgstr "Belarussian"
 
-#: main.py:47 main.py:108
+#: main.py:106 main.py:184
 msgid "English"
 msgstr "English"
 
-#: main.py:104
+#: main.py:178
 msgid "Choose subject"
 msgstr "Choose subject"
 
-#: main.py:119 main.py:139 main.py:212
+#: main.py:203 main.py:236 main.py:376
 msgid "Back"
 msgstr "Back"
 
-#: main.py:149
+#: main.py:256
 msgid "Answer number:"
 msgstr "Answer number:"
 
-#: main.py:155 main.py:217
+#: main.py:266 main.py:381
 msgid "Ready"
 msgstr "Ready"
 
-#: main.py:180
+#: main.py:324
 msgid "Configuring question"
 msgstr "Configuring question"
 
-#: main.py:181
+#: main.py:330
 msgid "Write question here:"
 msgstr "Write question here:"
 
-#: main.py:183
+#: main.py:332
 msgid "Number of answers:"
 msgstr "Number of answers:"
 
-#: main.py:185 main.py:200
+#: main.py:334 main.py:358
 msgid "Close"
 msgstr "Close"
 
-#: main.py:187
+#: main.py:336
 msgid "Next"
 msgstr "Next"
 
-#: main.py:199
+#: main.py:352
 msgid "Choose type"
 msgstr "Choose type"
 
-#: main.py:202
+#: main.py:361
 msgid "Question with answer variants"
-msgstr "Question with variants of answers"
+msgstr "Question with answer variants"
 
-#: main.py:215
+#: main.py:379
 msgid "More"
 msgstr "More"
