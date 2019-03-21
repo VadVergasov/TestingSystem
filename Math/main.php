@@ -1,5 +1,5 @@
 <?php
-$title = "Белорусский язык";
+$title = "Математика";
 require("../Templates/head.php");
 require("../mysql.php");
 ?>
@@ -9,7 +9,7 @@ require("../mysql.php");
         <th style="font-weight: bold;">Описание теста</th>
     </tr>
     <?php
-    $stmt = getTests("Bel");
+    $stmt = getTests("Math");
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr><th style='font-weight: lighter;'>";
         ?><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Bel/<?php echo $row['ID'] ?>"><?php echo $row["Name"]; ?></a>
@@ -20,5 +20,5 @@ require("../mysql.php");
 ?>
 </table>
 <?php
-require("../Templates/foot.php")
+require("../Templates/foot.php");
 ?> 

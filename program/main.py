@@ -7,6 +7,9 @@ from yattag import Doc
 from yattag import indent
 
 # Import for working with DB when new test was made
+import mysql
+import mysql.connector
+import mysql.connector.locales.eng.client_error
 from mysql.connector import MySQLConnection, Error
 
 # This will be used to send parameters when callbacks is called
@@ -277,8 +280,7 @@ def readyTest():
     begin = "<?php\nrequire('../mysql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('Bel');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['ID'] == $number) {\n        $title = $row['Name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
     end = "\n<?php\nrequire('../Templates/foot.php');\n?>"
     doc, tag, text, line = Doc().ttl()
-    with tag("form", action="check.php", method="post"):
-        cur = 0
+    with tag("form", action="check.php", method="post", autocomplete="off"):
         for i in questions:
             with tag("fieldset"):
                 doc.line("h2", i)

@@ -48,7 +48,7 @@
                 <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Pages/tests" class="nava">Тесты</a>
                     <ul>
                         <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Bel/main">Белорусский</a></li>
-                        <li><a href="">Математика</a></li>
+                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Math/main">Математика</a></li>
                         <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Rus/main">Русский</a></li>
                         <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Eng/main">Английский</a></li>
                     </ul>
@@ -56,4 +56,4 @@
                 <li style="float: right;"><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Pages/about" class="nava">Про систему</a></li>
             </ul>
         </nav>
-        <div id="content" style="width:100%;"> 
+        <div id="content"> 

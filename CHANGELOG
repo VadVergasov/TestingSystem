@@ -1,4 +1,6 @@
 -Some more export logic is need.
 -More types for answers are need
 -Trying to make DB insert after test make.
--Added one string with translation for errors with DB
+-Fixed site width more then screen
+-Added link to test from table
+-Cann't make build to exe with DB work
