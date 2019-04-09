@@ -7,10 +7,7 @@ from yattag import Doc
 from yattag import indent
 
 # Import for working with DB when new test was made
-import mysql
-import mysql.connector
-import mysql.connector.locales.eng.client_error
-from mysql.connector import MySQLConnection, Error
+import psycopg2
 
 # This will be used to send parameters when callbacks is called
 from functools import partial
@@ -65,31 +62,85 @@ makescreen = Screen(name="Making")
 editscreen = Screen(name="Edit")
 readyscreen = Screen(name="Ready")
 
+
+def readyTest(number):
+    """Generates final page."""
+    begin = "<?php\nrequire('../postgresql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('Bel');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['ID'] == $number) {\n        $title = $row['Name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
+    end = "\n<?php\nrequire('../Templates/foot.php');\n?>"
+    doc, tag, text, line = Doc().ttl()
+    with tag("form", action="check.php", method="post", autocomplete="off"):
+        for i in questions:
+            with tag("fieldset"):
+                doc.line("h2", i)
+                with tag("ol"):
+                    for j in range(len(questions[i])):
+                        with tag("li"):
+                            doc.line(
+                                "input",
+                                questions[i][j],
+                                type="checkbox",
+                                name=str(j),
+                                value=i,
+                            )
+        doc.stag("input", type="submit", text="send")
+        doc.asis(
+            "<input type='text' hidden='true' value='<?php echo $number;?>' name='number' />"
+        )
+    out = open(
+        os.getcwd()[0 : os.getcwd().find("program")]
+        + str(subject)
+        + "/"
+        + str(number)
+        + ".php",
+        "w",
+    )
+    out.write(begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end)
+    out.close()
+
+
 def lastScreen(*args):
-    '''Trying to get all fields in base'''
+    """Trying to get all fields in base"""
     Ready()
     sm.current = "Ready"
-    conn=None
+    conn = None
     try:
-        conn = MySQLConnection(
-            host="localhost", database="Tests", user="TestingSystem", password="postgresql"
+        conn = psycopg2.connect(
+            dbname="Tests",
+            user="TestingSystem",
+            password="postgresql",
+            host="localhost",
         )
-    except Error as e:
-        Ready.label.text += str(e)+"\n "+_("CheckLabel")
+    except Exception as e:
+        Ready.label.text += str(e) + "\n " + _("CheckLabel")
         return
     number = 0
     try:
         cursor = conn.cursor()
-        cursor.execute("SELECT ID FROM "+str(subject))
-        all = cursor.fetchall()
-        if len(all)==0:
-            number =0
-        else:
-            number=len(all)+1
+        cursor.execute("SELECT * FROM " + str(subject))
+        response = cursor.fetchall()
+        number = len(response) + 1
         cursor.close()
-    except Error as e:
-        Ready.label.text += str(e)+"\n "+_("CheckLabel")
+    except Exception as e:
+        Ready.label.text += str(e) + "\n " + _("CheckLabel")
         return
+    try:
+        cursor = conn.cursor()
+        cursor.execute(
+            "INSERT INTO "
+            + str(subject)
+            + " (name, description) values ('"
+            + str(Make.name.text)
+            + "', '"
+            + str(Make.description.text)
+            + "');"
+        )
+        cursor.close()
+    except Exception as e:
+        Ready.label.text += str(e) + "\n " + _("CheckLabel")
+        return
+    readyTest(number)
+    conn.commit()
+    conn.close()
 
 
 def Ready():
@@ -275,33 +326,6 @@ def editQuest(inst):
     changeScreen("Edit")
 
 
-def readyTest():
-    """Generates final page."""
-    begin = "<?php\nrequire('../mysql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('Bel');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['ID'] == $number) {\n        $title = $row['Name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
-    end = "\n<?php\nrequire('../Templates/foot.php');\n?>"
-    doc, tag, text, line = Doc().ttl()
-    with tag("form", action="check.php", method="post", autocomplete="off"):
-        for i in questions:
-            with tag("fieldset"):
-                doc.line("h2", i)
-                with tag("ol"):
-                    for j in range(len(questions[i])):
-                        with tag("li"):
-                            doc.line(
-                                "input",
-                                questions[i][j],
-                                type="checkbox",
-                                name=str(j),
-                                value=i,
-                            )
-        doc.stag("input", type="submit", text="send")
-        doc.asis(
-            "<input type='text' hidden='true' value='<?php echo $number;?>' name='number' />"
-        )
-    out = open("test.php", "w")
-    out.write(begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end)
-    out.close()
-
 def addQuestionWithAnswers(txt, num, *args):
     """Our popup for configuring question"""
     try:
@@ -377,15 +401,34 @@ def Make():
     )
     Make.layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
     Make.layout.bind(minimum_height=Make.layout.setter("height"))
+
     Make.back = Button(text=_("Back"), size_hint_y=None, height=60)
     Make.back.bind(on_release=partial(changeScreen, "Subject"))
-    Make.layout.add_widget(Make.back)
+
+    Make.name_text = Label(text=_("Name of test"), size_hint_y=None, height=40)
+
+    Make.name = TextInput(size_hint_y=None, height=40)
+
+    Make.description_text = Label(
+        text=_("Test description"), size_hint_y=None, height=40
+    )
+
+    Make.description = TextInput(size_hint_y=None, height=60)
+
     Make.new = Button(text=_("More"), size_hint_y=None, height=60)
     Make.new.bind(on_release=addQuest)
+
     Make.ready = Button(text=_("Ready"), size_hint_y=None, height=60)
     Make.ready.bind(on_release=lastScreen)
+
+    Make.layout.add_widget(Make.back)
+    Make.layout.add_widget(Make.name_text)
+    Make.layout.add_widget(Make.name)
+    Make.layout.add_widget(Make.description_text)
+    Make.layout.add_widget(Make.description)
     Make.layout.add_widget(Make.new)
     Make.layout.add_widget(Make.ready)
+
     Make.view.add_widget(Make.layout)
     makescreen.add_widget(Make.view)
 
@@ -399,6 +442,7 @@ sm.add_widget(langscreen)
 sm.add_widget(makescreen)
 sm.add_widget(editscreen)
 sm.add_widget(readyscreen)
+
 
 class MaketestApp(App):
     """Main class"""

@@ -1,7 +1,7 @@
 <?php
 $title = "Русский язык";
 require("../Templates/head.php");
-require("../mysql.php");
+require("../postgresql.php");
 ?>
 <table style="width: 100%; font-size: 1.5em;">
     <tr>
@@ -12,13 +12,13 @@ require("../mysql.php");
     $stmt = getTests("Rus");
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr><th style='font-weight: lighter;'>";
-        ?><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Bel/<?php echo $row['ID'] ?>"><?php echo $row["Name"]; ?></a>
-    <?php echo "</th><th style='font-weight: lighter;'>";
-    echo $row["Description"];
-    echo "</th></tr>";
-}
-?>
+        ?><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Rus/<?php echo $row['id'] ?>"><?php echo $row["name"]; ?></a>
+        <?php echo "</th><th style='font-weight: lighter;'>";
+        echo $row["description"];
+        echo "</th></tr>";
+    }
+    ?>
 </table>
 <?php
 require("../Templates/foot.php");
-?> 
+?>

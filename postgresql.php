@@ -1,11 +1,12 @@
 <?php
-function init(){
+function init()
+{
     try {
         $db = 'Tests';
         $host = 'localhost';
         $username = 'TestingSystem';
         $password = 'postgresql';
-        $dsn = "mysql:host=$host;dbname=$db";
+        $dsn = "pgsql:host=$host;dbname=$db";
         $opt = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -18,11 +19,11 @@ function init(){
     }
 }
 
-function getTests($lang){
+function getTests($lang)
+{
     $db = init();
     $sql = 'SELECT * FROM %s';
     $stmt = $db->prepare(sprintf($sql, $lang));
     $stmt->execute();
     return $stmt;
 }
- 

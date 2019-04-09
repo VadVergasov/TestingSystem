@@ -1,25 +1,29 @@
-body{
+body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
 }
-#content{
-    float: left; 
+
+#content {
+    float: left;
     margin: 10px;
 }
+
 #nav {
     width: 100%;
     height: 4em;
     background-color: #000;
 }
-#nav ul{
+
+#nav ul {
     position: relative;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-#nav ul li{
+
+#nav ul li {
     position: relative;
     float: left;
     -webkit-transition: all .2s ease-in-out;
@@ -27,41 +31,59 @@ body{
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
-#nav ul li:hover{background: #000;}
-#nav ul li:hover > ul{display: block;}
-#nav ul li:active{background: #000;}
-#nav ul li:active > ul{display: block;} 
-#nav ul li{
+
+#nav ul li:hover {
+    background: #000;
+}
+
+#nav ul li:hover>ul {
+    display: block;
+}
+
+#nav ul li:active {
+    background: #000;
+}
+
+#nav ul li:active>ul {
+    display: block;
+}
+
+#nav ul li {
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
-#nav ul li a{
+
+#nav ul li a {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     display: block;
     padding: 20px 20px;
     text-decoration: none;
 }
-#nav ul ul{
+
+#nav ul ul {
     display: none;
     position: absolute;
 }
 
-#nav ul ul li{
+#nav ul ul li {
     background-color: #000;
     position: relative;
     float: none;
 }
-ol li{
+
+ol li {
     font-size: 1.5em;
 }
-ol li a{
+
+ol li a {
     font-size: 1.5em;
     text-decoration: none;
     color: #000;
 }
+
 .loader {
     background: #000;
     background: radial-gradient(#222, #000);
@@ -86,9 +108,7 @@ ol li a{
 }
 
 .loader-line-wrap {
-    animation: 
-		spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
-	;
+    animation: spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite;
     box-sizing: border-box;
     height: 50px;
     left: 0;
@@ -98,6 +118,7 @@ ol li a{
     transform-origin: 50% 100%;
     width: 100px;
 }
+
 .loader-line {
     border: 4px solid transparent;
     border-radius: 100%;
@@ -110,11 +131,26 @@ ol li a{
     top: 0;
     width: 100px;
 }
-.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
-.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
-.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
-.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
-.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
+
+.loader-line-wrap:nth-child(1) {
+    animation-delay: -50ms;
+}
+
+.loader-line-wrap:nth-child(2) {
+    animation-delay: -100ms;
+}
+
+.loader-line-wrap:nth-child(3) {
+    animation-delay: -150ms;
+}
+
+.loader-line-wrap:nth-child(4) {
+    animation-delay: -200ms;
+}
+
+.loader-line-wrap:nth-child(5) {
+    animation-delay: -250ms;
+}
 
 .loader-line-wrap:nth-child(1) .loader-line {
     border-color: hsl(0, 80%, 60%);
@@ -122,24 +158,28 @@ ol li a{
     width: 90px;
     top: 7px;
 }
+
 .loader-line-wrap:nth-child(2) .loader-line {
     border-color: hsl(60, 80%, 60%);
     height: 76px;
     width: 76px;
     top: 14px;
 }
+
 .loader-line-wrap:nth-child(3) .loader-line {
     border-color: hsl(120, 80%, 60%);
     height: 62px;
     width: 62px;
     top: 21px;
 }
+
 .loader-line-wrap:nth-child(4) .loader-line {
     border-color: hsl(180, 80%, 60%);
     height: 48px;
     width: 48px;
     top: 28px;
 }
+
 .loader-line-wrap:nth-child(5) .loader-line {
     border-color: hsl(240, 80%, 60%);
     height: 34px;
@@ -149,28 +189,51 @@ ol li a{
 
 @keyframes spin {
     0%, 15% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
-#site{
+
+#site {
     width: 100%;
 }
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
+
 th, td {
     padding: 5px;
     text-align: left;
 }
-#logo{
+
+#logo {
     width: 4em;
     height: 4em;
 }
-#logo a img{
+
+#logo a img {
     width: 100%;
     height: 100%;
+}
+
+input[type="submit"] {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #fd9535;
+    border-bottom: solid 2px #d27d00;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    border-bottom: solid 2px #fd9535;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }

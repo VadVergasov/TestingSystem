@@ -1,6 +1,5 @@
 -Some more export logic is need.
 -More types for answers are need
 -Trying to make DB insert after test make.
--Fixed site width more then screen
--Added link to test from table
--Cann't make build to exe with DB work
+-Moved from MySQL to PostgreSQL because MySQL python module won't be compiled.
+-Now program generates test and writes to DB.
