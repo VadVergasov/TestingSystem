@@ -1,5 +1,8 @@
--Some more export logic is need.
--More types for answers are need
--Trying to make DB insert after test make.
--Moved from MySQL to PostgreSQL because MySQL python module won't be compiled.
--Now program generates test and writes to DB.
+-More types for answers are need.
+-Added .sql file for database structure.
+-Fixed some minor issues.
+-Now list of tests shows by tests.php file and no main.php in every subject.
+-Now answers stored in DB in the "answers" field.
+-Fixed UTF-8 encoding with .php file in python program.
+-Now working on checker.
+-Removed all test tests.

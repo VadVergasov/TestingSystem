@@ -22,7 +22,7 @@ function init()
 function getTests($lang)
 {
     $db = init();
-    $sql = 'SELECT * FROM %s';
+    $sql = 'SELECT id, name, description FROM %s';
     $stmt = $db->prepare(sprintf($sql, $lang));
     $stmt->execute();
     return $stmt;

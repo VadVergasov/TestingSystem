@@ -1,3 +1,5 @@
+<?php require("../postgresql.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -47,13 +49,13 @@
                 <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>" class="nava">Главная</a></li>
                 <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Pages/tests" class="nava">Тесты</a>
                     <ul>
-                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Bel/main">Белорусский</a></li>
-                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Math/main">Математика</a></li>
-                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Rus/main">Русский</a></li>
-                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Eng/main">Английский</a></li>
+                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Pages/tests?p=Bel">Белорусский</a></li>
+                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Pages/tests?p=Math">Математика</a></li>
+                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Pages/tests?p=Rus">Русский</a></li>
+                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Pages/tests?p=Eng">Английский</a></li>
                     </ul>
                 </li>
                 <li style="float: right;"><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/Pages/about" class="nava">Про систему</a></li>
             </ul>
         </nav>
-        <div id="content"> 
+        <div id="content">

@@ -65,7 +65,7 @@ readyscreen = Screen(name="Ready")
 
 def readyTest(number):
     """Generates final page."""
-    begin = "<?php\nrequire('../postgresql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('Bel');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['ID'] == $number) {\n        $title = $row['Name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
+    begin = "<?php\nrequire('../Templates/head.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('Bel');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['ID'] == $number) {\n        $title = $row['Name'];\n        break;\n    }\n}\n?>\n"
     end = "\n<?php\nrequire('../Templates/foot.php');\n?>"
     doc, tag, text, line = Doc().ttl()
     with tag("form", action="check.php", method="post", autocomplete="off"):
@@ -92,9 +92,9 @@ def readyTest(number):
         + "/"
         + str(number)
         + ".php",
-        "w",
+        "wb",
     )
-    out.write(begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end)
+    out.write((begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end).encode('UTF-8'))
     out.close()
 
 
@@ -113,33 +113,39 @@ def lastScreen(*args):
     except Exception as e:
         Ready.label.text += str(e) + "\n " + _("CheckLabel")
         return
-    number = 0
     try:
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM " + str(subject))
-        response = cursor.fetchall()
-        number = len(response) + 1
-        cursor.close()
-    except Exception as e:
-        Ready.label.text += str(e) + "\n " + _("CheckLabel")
-        return
-    try:
-        cursor = conn.cursor()
+        ans = ""
+        for i in range(len(editQuest.check)):
+            ans += str(int(editQuest.check[i].active))
+
         cursor.execute(
             "INSERT INTO "
             + str(subject)
-            + " (name, description) values ('"
+            + " (name, description, answer) values ('"
             + str(Make.name.text)
             + "', '"
             + str(Make.description.text)
+            + "', '"
+            + ans
             + "');"
         )
         cursor.close()
     except Exception as e:
         Ready.label.text += str(e) + "\n " + _("CheckLabel")
         return
-    readyTest(number)
     conn.commit()
+    number = 0
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT id FROM " + str(subject))
+        response = cursor.fetchall()
+        number = int(response[-1][-1])
+        cursor.close()
+    except Exception as e:
+        Ready.label.text += str(e) + "\n " + _("CheckLabel")
+        return
+    readyTest(number)
     conn.close()
 
 
