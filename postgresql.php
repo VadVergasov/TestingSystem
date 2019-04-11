@@ -27,3 +27,12 @@ function getTests($lang)
     $stmt->execute();
     return $stmt;
 }
+
+function getAns($lang, $testname)
+{
+    $db = init();
+    $sql = 'SELECT answer FROM %1$s WHERE name=\'%2$s\'';
+    $stmt = $db->prepare(sprintf($sql, $lang, $testname));
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC)["answer"];
+}

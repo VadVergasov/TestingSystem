@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-03-19 21:41+0300\n"
-"PO-Revision-Date: 2019-03-19 21:50+0300\n"
+"POT-Creation-Date: 2019-04-11 00:24+0300\n"
+"PO-Revision-Date: 2019-04-11 18:25+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,70 +17,78 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en\n"
 
-#: main.py:85
+#: main.py:114 main.py:135 main.py:146
 msgid "CheckLabel"
 msgstr "Check if server is running. Try again or ask for help."
 
-#: main.py:100 main.py:193
+#: main.py:163 main.py:256
 msgid "Math"
 msgstr "Math"
 
-#: main.py:102 main.py:187
+#: main.py:165 main.py:250
 msgid "Russian"
 msgstr "Russian"
 
-#: main.py:104 main.py:190
+#: main.py:167 main.py:253
 msgid "Belarussian"
 msgstr "Belarussian"
 
-#: main.py:106 main.py:184
+#: main.py:169 main.py:247
 msgid "English"
 msgstr "English"
 
-#: main.py:178
+#: main.py:241
 msgid "Choose subject"
 msgstr "Choose subject"
 
-#: main.py:203 main.py:236 main.py:376
+#: main.py:266 main.py:299 main.py:411
 msgid "Back"
 msgstr "Back"
 
-#: main.py:256
+#: main.py:319
 msgid "Answer number:"
 msgstr "Answer number:"
 
-#: main.py:266 main.py:381
+#: main.py:329 main.py:427
 msgid "Ready"
 msgstr "Ready"
 
-#: main.py:324
+#: main.py:358
 msgid "Configuring question"
 msgstr "Configuring question"
 
-#: main.py:330
+#: main.py:364
 msgid "Write question here:"
 msgstr "Write question here:"
 
-#: main.py:332
+#: main.py:366
 msgid "Number of answers:"
 msgstr "Number of answers:"
 
-#: main.py:334 main.py:358
+#: main.py:368 main.py:392
 msgid "Close"
 msgstr "Close"
 
-#: main.py:336
+#: main.py:370
 msgid "Next"
 msgstr "Next"
 
-#: main.py:352
+#: main.py:386
 msgid "Choose type"
 msgstr "Choose type"
 
-#: main.py:361
+#: main.py:395
 msgid "Question with answer variants"
 msgstr "Question with answer variants"
 
-#: main.py:379
+#: main.py:414
+msgid "Name of test"
+msgstr "Name of test"
+
+#: main.py:419
+msgid "Test description"
+msgstr "Test description"
+
+#: main.py:424
 msgid "More"
 msgstr "More"

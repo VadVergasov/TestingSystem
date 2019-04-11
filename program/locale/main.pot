@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-03-19 21:41+0300\n"
+"POT-Creation-Date: 2019-04-11 00:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,71 +15,79 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: main.py:85
+#: main.py:114 main.py:135 main.py:146
 msgid "CheckLabel"
 msgstr ""
 
-#: main.py:100 main.py:193
+#: main.py:163 main.py:256
 msgid "Math"
 msgstr ""
 
-#: main.py:102 main.py:187
+#: main.py:165 main.py:250
 msgid "Russian"
 msgstr ""
 
-#: main.py:104 main.py:190
+#: main.py:167 main.py:253
 msgid "Belarussian"
 msgstr ""
 
-#: main.py:106 main.py:184
+#: main.py:169 main.py:247
 msgid "English"
 msgstr ""
 
-#: main.py:178
+#: main.py:241
 msgid "Choose subject"
 msgstr ""
 
-#: main.py:203 main.py:236 main.py:376
+#: main.py:266 main.py:299 main.py:411
 msgid "Back"
 msgstr ""
 
-#: main.py:256
+#: main.py:319
 msgid "Answer number:"
 msgstr ""
 
-#: main.py:266 main.py:381
+#: main.py:329 main.py:427
 msgid "Ready"
 msgstr ""
 
-#: main.py:324
+#: main.py:358
 msgid "Configuring question"
 msgstr ""
 
-#: main.py:330
+#: main.py:364
 msgid "Write question here:"
 msgstr ""
 
-#: main.py:332
+#: main.py:366
 msgid "Number of answers:"
 msgstr ""
 
-#: main.py:334 main.py:358
+#: main.py:368 main.py:392
 msgid "Close"
 msgstr ""
 
-#: main.py:336
+#: main.py:370
 msgid "Next"
 msgstr ""
 
-#: main.py:352
+#: main.py:386
 msgid "Choose type"
 msgstr ""
 
-#: main.py:361
+#: main.py:395
 msgid "Question with answer variants"
 msgstr ""
 
-#: main.py:379
+#: main.py:414
+msgid "Name of test"
+msgstr ""
+
+#: main.py:419
+msgid "Test description"
+msgstr ""
+
+#: main.py:424
 msgid "More"
 msgstr ""
 

@@ -1,8 +1,6 @@
 -More types for answers are need.
--Added .sql file for database structure.
--Fixed some minor issues.
--Now list of tests shows by tests.php file and no main.php in every subject.
--Now answers stored in DB in the "answers" field.
--Fixed UTF-8 encoding with .php file in python program.
--Now working on checker.
--Removed all test tests.
+-More info added in README.
+-Removed postgresql.php require in head.
+-Translated.
+-Added checker.
+-Now test export working well.

@@ -65,12 +65,20 @@ readyscreen = Screen(name="Ready")
 
 def readyTest(number):
     """Generates final page."""
-    begin = "<?php\nrequire('../Templates/head.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('Bel');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['ID'] == $number) {\n        $title = $row['Name'];\n        break;\n    }\n}\n?>\n"
+    begin = (
+        "<?php\nrequire('../postgresql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('"
+        + str(subject)
+        + "');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['id'] == $number) {\n        $title = $row['name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
+    )
     end = "\n<?php\nrequire('../Templates/foot.php');\n?>"
     doc, tag, text, line = Doc().ttl()
-    with tag("form", action="check.php", method="post", autocomplete="off"):
+    with tag("form", action="../Pages/checker.php", method="post", autocomplete="off"):
+        doc.line("input", "", type="hidden", name="Lang", value=str(subject))
+        doc.line("input", "", type="hidden", name="Name", value=str(Make.name.text))
+        num = 0
         for i in questions:
             with tag("fieldset"):
+                doc.line("input", "", type="hidden", name="Count[]", value=str(len(questions[i])))
                 doc.line("h2", i)
                 with tag("ol"):
                     for j in range(len(questions[i])):
@@ -79,13 +87,11 @@ def readyTest(number):
                                 "input",
                                 questions[i][j],
                                 type="checkbox",
-                                name=str(j),
-                                value=i,
+                                name=str(num) + "[]",
+                                value="1",
                             )
+            num += 1
         doc.stag("input", type="submit", text="send")
-        doc.asis(
-            "<input type='text' hidden='true' value='<?php echo $number;?>' name='number' />"
-        )
     out = open(
         os.getcwd()[0 : os.getcwd().find("program")]
         + str(subject)
@@ -94,7 +100,11 @@ def readyTest(number):
         + ".php",
         "wb",
     )
-    out.write((begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end).encode('UTF-8'))
+    out.write(
+        (begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end).encode(
+            "UTF-8"
+        )
+    )
     out.close()
 
 
@@ -116,8 +126,9 @@ def lastScreen(*args):
     try:
         cursor = conn.cursor()
         ans = ""
-        for i in range(len(editQuest.check)):
-            ans += str(int(editQuest.check[i].active))
+        for i in answers.values():
+            for j in i:
+                ans += str(int(j))
 
         cursor.execute(
             "INSERT INTO "

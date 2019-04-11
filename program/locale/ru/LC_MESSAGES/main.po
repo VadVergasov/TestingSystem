@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-03-19 21:41+0300\n"
-"PO-Revision-Date: 2019-03-19 21:54+0300\n"
+"POT-Creation-Date: 2019-04-11 00:24+0300\n"
+"PO-Revision-Date: 2019-04-11 18:23+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,70 +17,78 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Language: ru\n"
 
-#: main.py:85
+#: main.py:114 main.py:135 main.py:146
 msgid "CheckLabel"
 msgstr "Проверьте, запушен ли сервер. Попробуйте еще раз или обратитесь за помощью."
 
-#: main.py:100 main.py:193
+#: main.py:163 main.py:256
 msgid "Math"
 msgstr "Математика"
 
-#: main.py:102 main.py:187
+#: main.py:165 main.py:250
 msgid "Russian"
 msgstr "Русский язык"
 
-#: main.py:104 main.py:190
+#: main.py:167 main.py:253
 msgid "Belarussian"
 msgstr "Белорусский язык"
 
-#: main.py:106 main.py:184
+#: main.py:169 main.py:247
 msgid "English"
 msgstr "Английский язык"
 
-#: main.py:178
+#: main.py:241
 msgid "Choose subject"
 msgstr "Выберете предмет"
 
-#: main.py:203 main.py:236 main.py:376
+#: main.py:266 main.py:299 main.py:411
 msgid "Back"
 msgstr "Назад"
 
-#: main.py:256
+#: main.py:319
 msgid "Answer number:"
 msgstr "Ответ номер:"
 
-#: main.py:266 main.py:381
+#: main.py:329 main.py:427
 msgid "Ready"
 msgstr "Готово"
 
-#: main.py:324
+#: main.py:358
 msgid "Configuring question"
 msgstr "Настройка вопроса"
 
-#: main.py:330
+#: main.py:364
 msgid "Write question here:"
 msgstr "Напишите вопрос здесь:"
 
-#: main.py:332
+#: main.py:366
 msgid "Number of answers:"
 msgstr "Количество вариантов ответа:"
 
-#: main.py:334 main.py:358
+#: main.py:368 main.py:392
 msgid "Close"
 msgstr "Закрыть"
 
-#: main.py:336
+#: main.py:370
 msgid "Next"
 msgstr "Далее"
 
-#: main.py:352
+#: main.py:386
 msgid "Choose type"
 msgstr "Выберете тип"
 
-#: main.py:361
+#: main.py:395
 msgid "Question with answer variants"
 msgstr "Вопрос с вариантами ответов"
 
-#: main.py:379
+#: main.py:414
+msgid "Name of test"
+msgstr "Название теста"
+
+#: main.py:419
+msgid "Test description"
+msgstr "Описание теста"
+
+#: main.py:424
 msgid "More"
 msgstr "Еще"

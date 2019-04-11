@@ -1,5 +1,3 @@
-<?php require("../postgresql.php");
-?>
 <!DOCTYPE html>
 <html>
 
