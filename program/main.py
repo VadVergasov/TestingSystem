@@ -88,7 +88,7 @@ def readyTest(number):
                                 questions[i][j],
                                 type="checkbox",
                                 name=str(num) + "[]",
-                                value="1",
+                                value=str(j),
                             )
             num += 1
         doc.stag("input", type="submit", text="send")
@@ -158,6 +158,7 @@ def lastScreen(*args):
         return
     readyTest(number)
     conn.close()
+    Ready.label.text = "OK!"
 
 
 def Ready():

@@ -25,7 +25,7 @@ if ($_GET["p"] == "") {
     require("../Templates/head.php"); ?>
     <table style="width: 100%; font-size: 1.5em;">
         <tr>
-            <th style="width: 1px; white-space: nowrap; font-weight: bold;">Название теста</th>
+            <th style="width: 25%; white-space: nowrap; font-weight: bold;">Название теста</th>
             <th style="font-weight: bold;">Описание теста</th>
         </tr>
         <?php

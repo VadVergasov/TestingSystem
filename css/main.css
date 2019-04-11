@@ -6,6 +6,7 @@ body {
 }
 
 #content {
+    width: 80%;
     float: left;
     margin: 10px;
 }

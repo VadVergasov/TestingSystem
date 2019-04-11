@@ -1,6 +1,4 @@
 -More types for answers are need.
--More info added in README.
--Removed postgresql.php require in head.
--Translated.
--Added checker.
--Now test export working well.
+-Fixed incorrect percentage in result score.
+-Resized table.
+-Added OK label after test creation.
