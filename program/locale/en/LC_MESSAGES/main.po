@@ -5,90 +5,98 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-04-11 00:24+0300\n"
-"PO-Revision-Date: 2019-04-11 18:25+0300\n"
+"POT-Creation-Date: 2019-04-13 22:38+0300\n"
+"PO-Revision-Date: 2019-04-13 22:42+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
 "X-Generator: Poedit 2.2.1\n"
-"Last-Translator: \n"
+"Last-Translator: Vadim Vergasov <vadim.vergasov2003@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en\n"
 
-#: main.py:114 main.py:135 main.py:146
-msgid "CheckLabel"
+#: main.py:122
+msgid "Test name can't be blank!"
+msgstr "Test name can't be blank!"
+
+#: main.py:125
+msgid "You didn't configure questions!"
+msgstr "You didn't configure questions!"
+
+#: main.py:137 main.py:161 main.py:172
+msgid "Check if server is running. Try again or ask for help."
 msgstr "Check if server is running. Try again or ask for help."
 
-#: main.py:163 main.py:256
+#: main.py:190 main.py:283
 msgid "Math"
 msgstr "Math"
 
-#: main.py:165 main.py:250
+#: main.py:192 main.py:277
 msgid "Russian"
 msgstr "Russian"
 
-#: main.py:167 main.py:253
+#: main.py:194 main.py:280
 msgid "Belarussian"
 msgstr "Belarussian"
 
-#: main.py:169 main.py:247
+#: main.py:196 main.py:274
 msgid "English"
 msgstr "English"
 
-#: main.py:241
+#: main.py:268
 msgid "Choose subject"
 msgstr "Choose subject"
 
-#: main.py:266 main.py:299 main.py:411
+#: main.py:293 main.py:326 main.py:438
 msgid "Back"
 msgstr "Back"
 
-#: main.py:319
+#: main.py:346
 msgid "Answer number:"
 msgstr "Answer number:"
 
-#: main.py:329 main.py:427
+#: main.py:356 main.py:454
 msgid "Ready"
 msgstr "Ready"
 
-#: main.py:358
+#: main.py:385
 msgid "Configuring question"
 msgstr "Configuring question"
 
-#: main.py:364
+#: main.py:391
 msgid "Write question here:"
 msgstr "Write question here:"
 
-#: main.py:366
+#: main.py:393
 msgid "Number of answers:"
 msgstr "Number of answers:"
 
-#: main.py:368 main.py:392
+#: main.py:395 main.py:419
 msgid "Close"
 msgstr "Close"
 
-#: main.py:370
+#: main.py:397
 msgid "Next"
 msgstr "Next"
 
-#: main.py:386
+#: main.py:413
 msgid "Choose type"
 msgstr "Choose type"
 
-#: main.py:395
+#: main.py:422
 msgid "Question with answer variants"
 msgstr "Question with answer variants"
 
-#: main.py:414
+#: main.py:441
 msgid "Name of test"
 msgstr "Name of test"
 
-#: main.py:419
+#: main.py:446
 msgid "Test description"
 msgstr "Test description"
 
-#: main.py:424
+#: main.py:451
 msgid "More"
 msgstr "More"

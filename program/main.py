@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+# Base imports
 import os, kivy, gettext
 
 # Import library for html generate
@@ -43,7 +44,7 @@ Config.set("kivy", "log_dir", os.getcwd() + "\\log")
 Config.set("kivy", "log_level", "warning")
 Config.set("kivy", "log_maxfiles", 10)
 Config.set("kivy", "desktop", 1)
-Config.set("kivy", "window_icon", os.getcwd() + "\\data\\icon\\favicon.ico")
+Config.set("kivy", "window_icon", "icon.png")
 Config.set("graphics", "max_fps", 60)
 Config.write()
 
@@ -64,7 +65,7 @@ readyscreen = Screen(name="Ready")
 
 
 def readyTest(number):
-    """Generates final page."""
+    """Generates final php page."""
     begin = (
         "<?php\nrequire('../postgresql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('"
         + str(subject)
@@ -78,7 +79,13 @@ def readyTest(number):
         num = 0
         for i in questions:
             with tag("fieldset"):
-                doc.line("input", "", type="hidden", name="Count[]", value=str(len(questions[i])))
+                doc.line(
+                    "input",
+                    "",
+                    type="hidden",
+                    name="Count[]",
+                    value=str(len(questions[i])),
+                )
                 doc.line("h2", i)
                 with tag("ol"):
                     for j in range(len(questions[i])):
@@ -112,6 +119,12 @@ def lastScreen(*args):
     """Trying to get all fields in base"""
     Ready()
     sm.current = "Ready"
+    if Make.name.text == "":
+        Ready.label.text = _("Test name can't be blank!")
+        return
+    elif len(questions) == 0:
+        Ready.label.text = _("You didn't configure questions!")
+        return
     conn = None
     try:
         conn = psycopg2.connect(
@@ -121,7 +134,12 @@ def lastScreen(*args):
             host="localhost",
         )
     except Exception as e:
-        Ready.label.text += str(e) + "\n " + _("CheckLabel")
+        if "could not connect to server" in str(e):
+            Ready.label.text += _(
+                "Check if server is running. Try again or ask for help."
+            )
+        else:
+            Ready.label.text += str(e)
         return
     try:
         cursor = conn.cursor()
@@ -143,7 +161,9 @@ def lastScreen(*args):
         )
         cursor.close()
     except Exception as e:
-        Ready.label.text += str(e) + "\n " + _("CheckLabel")
+        Ready.label.text += (
+            str(e) + "\n " + _("Check if server is running. Try again or ask for help.")
+        )
         return
     conn.commit()
     number = 0
@@ -154,7 +174,9 @@ def lastScreen(*args):
         number = int(response[-1][-1])
         cursor.close()
     except Exception as e:
-        Ready.label.text += str(e) + "\n " + _("CheckLabel")
+        Ready.label.text += (
+            str(e) + "\n " + _("Check if server is running. Try again or ask for help.")
+        )
         return
     readyTest(number)
     conn.close()
@@ -365,7 +387,12 @@ def addQuestionWithAnswers(txt, num, *args):
 
 
 def addVariants(btn):
+    """Question with some answers. Primitive."""
+
+    #Main layout.
     addVariants.layout = GridLayout(cols=1, rows=6, spacing=5)
+
+    #Our popup with input fields.
     addVariants.popup = Popup(
         title=_("Configuring question"),
         content=addVariants.layout,
@@ -373,27 +400,47 @@ def addVariants(btn):
         size=(600, 400),
         auto_dismiss=False,
     )
+
+    #Label which inidicates where input for question is located.
     addVariants.label = Label(text=_("Write question here:"), size_hint=(1, 0.2))
+
+    #Text input for question.
     addVariants.text = TextInput()
+
+    #Label which indicates where input for number of answer is located.
     addVariants.number = Label(text=_("Number of answers:"), size_hint=(1, 0.2))
+
+    #Text input for number of question.
     addVariants.num = TextInput(input_filter="int", size_hint=(1, 0.4), multiline=False)
+
+    #Close button.
     addVariants.button = Button(text=_("Close"), size_hint=(1, 0.5))
     addVariants.button.bind(on_release=addVariants.popup.dismiss)
+
+    #Button to continue.
     addVariants.nxt = Button(text=_("Next"), size_hint=(1, 0.5))
     addVariants.nxt.bind(
         on_release=partial(addQuestionWithAnswers, addVariants.text, addVariants.num)
     )
+
+    #Adding all UI componets to layout.
     addVariants.layout.add_widget(addVariants.label)
     addVariants.layout.add_widget(addVariants.text)
     addVariants.layout.add_widget(addVariants.number)
     addVariants.layout.add_widget(addVariants.num)
     addVariants.layout.add_widget(addVariants.nxt)
     addVariants.layout.add_widget(addVariants.button)
+
+    #Showing popup.
     addVariants.popup.open()
 
 
 def addQuest(btn):
+    """Popun where we can select type of question."""
+    #Main layout.
     addQuest.layout = GridLayout(cols=1, spacing=5, size_hint_y=None)
+
+    #Popup window.
     addQuest.popup = Popup(
         title=_("Choose type"),
         content=addQuest.layout,
@@ -401,44 +448,64 @@ def addQuest(btn):
         size=(400, 400),
         auto_dismiss=False,
     )
+
+    #Close button.
     addQuest.button = Button(text=_("Close"), size_hint_y=None, height=40)
     addQuest.button.bind(on_release=addQuest.popup.dismiss)
+
+    #Our types of question.
     addQuest.variants = Button(
         text=_("Question with answer variants"), size_hint_y=None, height=40
     )
     addQuest.variants.bind(on_release=addVariants)
+
+    #Adding all to layout.
     addQuest.layout.add_widget(addQuest.variants)
     addQuest.layout.add_widget(addQuest.button)
+
+    #Showing popup.
     addQuest.popup.open()
 
 
 def Make():
     """Screen for configuring test"""
+    # ScrollView, so you can see a lot of questions in window.
     Make.view = ScrollView(
         size_hint=(1, None), size=(Window.width, Window.height), bar_width=7
     )
+
+    # Main layout where all UI objects will be placed.
     Make.layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
+    # Option for ScrollView.
     Make.layout.bind(minimum_height=Make.layout.setter("height"))
 
+    # Back button.
     Make.back = Button(text=_("Back"), size_hint_y=None, height=60)
     Make.back.bind(on_release=partial(changeScreen, "Subject"))
 
+    # Label which indicates where test name input locates.
     Make.name_text = Label(text=_("Name of test"), size_hint_y=None, height=40)
 
+    # Test name input.
     Make.name = TextInput(size_hint_y=None, height=40)
 
+    # Label which indicates where test description input locates.
     Make.description_text = Label(
         text=_("Test description"), size_hint_y=None, height=40
     )
 
+    # Test description input.
     Make.description = TextInput(size_hint_y=None, height=60)
 
+    # More button.
     Make.new = Button(text=_("More"), size_hint_y=None, height=60)
     Make.new.bind(on_release=addQuest)
 
+    # Ready button to finish test "baking".
     Make.ready = Button(text=_("Ready"), size_hint_y=None, height=60)
     Make.ready.bind(on_release=lastScreen)
 
+    # Adding all UI elements to UI. Order is important, for more info read Kivy docs.
     Make.layout.add_widget(Make.back)
     Make.layout.add_widget(Make.name_text)
     Make.layout.add_widget(Make.name)
@@ -447,11 +514,14 @@ def Make():
     Make.layout.add_widget(Make.new)
     Make.layout.add_widget(Make.ready)
 
+    # Adding layout to view.
     Make.view.add_widget(Make.layout)
+
+    # Adding view to screen.
     makescreen.add_widget(Make.view)
 
 
-# Function call
+# Function call, to initialize program (generate first screen)
 Lang()
 
 # Adding screens to Screen manager
@@ -463,11 +533,12 @@ sm.add_widget(readyscreen)
 
 
 class MaketestApp(App):
-    """Main class"""
+    """Main class. Default App class in Kivy."""
 
     title = "Making test"
 
     def build(self):
+        self.icon = 'icon.png'
         sm.current = "Lang"
         return sm
 
@@ -476,4 +547,5 @@ class MaketestApp(App):
 
 
 if __name__ == "__main__":
+    """Run!"""
     MaketestApp().run()

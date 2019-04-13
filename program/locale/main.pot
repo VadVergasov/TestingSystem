@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-11 00:24+0300\n"
+"POT-Creation-Date: 2019-04-13 22:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,79 +15,87 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: main.py:114 main.py:135 main.py:146
-msgid "CheckLabel"
+#: main.py:122
+msgid "Test name can't be blank!"
 msgstr ""
 
-#: main.py:163 main.py:256
+#: main.py:125
+msgid "You didn't configure questions!"
+msgstr ""
+
+#: main.py:137 main.py:161 main.py:172
+msgid "Check if server is running. Try again or ask for help."
+msgstr ""
+
+#: main.py:190 main.py:283
 msgid "Math"
 msgstr ""
 
-#: main.py:165 main.py:250
+#: main.py:192 main.py:277
 msgid "Russian"
 msgstr ""
 
-#: main.py:167 main.py:253
+#: main.py:194 main.py:280
 msgid "Belarussian"
 msgstr ""
 
-#: main.py:169 main.py:247
+#: main.py:196 main.py:274
 msgid "English"
 msgstr ""
 
-#: main.py:241
+#: main.py:268
 msgid "Choose subject"
 msgstr ""
 
-#: main.py:266 main.py:299 main.py:411
+#: main.py:293 main.py:326 main.py:438
 msgid "Back"
 msgstr ""
 
-#: main.py:319
+#: main.py:346
 msgid "Answer number:"
 msgstr ""
 
-#: main.py:329 main.py:427
+#: main.py:356 main.py:454
 msgid "Ready"
 msgstr ""
 
-#: main.py:358
+#: main.py:385
 msgid "Configuring question"
 msgstr ""
 
-#: main.py:364
+#: main.py:391
 msgid "Write question here:"
 msgstr ""
 
-#: main.py:366
+#: main.py:393
 msgid "Number of answers:"
 msgstr ""
 
-#: main.py:368 main.py:392
+#: main.py:395 main.py:419
 msgid "Close"
 msgstr ""
 
-#: main.py:370
+#: main.py:397
 msgid "Next"
 msgstr ""
 
-#: main.py:386
+#: main.py:413
 msgid "Choose type"
 msgstr ""
 
-#: main.py:395
+#: main.py:422
 msgid "Question with answer variants"
 msgstr ""
 
-#: main.py:414
+#: main.py:441
 msgid "Name of test"
 msgstr ""
 
-#: main.py:419
+#: main.py:446
 msgid "Test description"
 msgstr ""
 
-#: main.py:424
+#: main.py:451
 msgid "More"
 msgstr ""
 

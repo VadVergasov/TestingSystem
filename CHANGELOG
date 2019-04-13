@@ -1,4 +1,8 @@
 -More types for answers are need.
--Fixed incorrect percentage in result score.
--Resized table.
--Added OK label after test creation.
+-Dynamic password for DB required.
+-Added some exceptions handling.
+-Added transaltions for exceptions handling messages.
+-More comments in source. Hurray!
+-Added force close for process explorer.exe on Windows to recache icons. Without this line icon will be incorrect.
+-Moved icons to root directory.
+-Fixed incorrect Kivy Icon, because .ico is not supproted.

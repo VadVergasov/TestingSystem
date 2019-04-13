@@ -2,7 +2,7 @@ rmdir build /s /Q
 rmdir __pycache__ /s /Q
 rmdir dist /s /Q
 set PYTHONOPTIMIZE=1
-pyinstaller -i data\icon\favico.ico --log-level=WARN --clean -y --key=TestingSystem testmake.spec
+pyinstaller --log-level=WARN --clean -y testmake.spec
 rmdir build /s /Q
 rmdir __pycache__ /s /Q
 rmdir dist\MakeTest\Crypto /s /Q
@@ -33,3 +33,6 @@ del dist\MakeTest\ucrtbase.dll
 del dist\MakeTest\libwebp-7.dll
 del dist\MakeTest\libogg-0.dll
 del dist\MakeTest\libmpg123-0.dll
+taskkill /F /IM explorer.exe
+del %UserProfile%\AppData\Local\Microsoft\Windows\Explorer\iconcache*
+start explorer.exe
