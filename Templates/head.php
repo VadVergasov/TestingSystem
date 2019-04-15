@@ -12,32 +12,25 @@
         $(window).on('load', function() {
             setTimeout(function() {
                 $preloader = $('.loader');
-                $preloader.attr("hidden", true);
+                $preloader.hide();
                 $site = $('#site');
                 $site.removeAttr("hidden");
-            }, 300);
+            }, 500);
         });
     </script>
 </head>
 
 <body>
     <div class="loader">
-        <div class="loader-inner">
-            <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div>
-            <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div>
-            <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div>
-            <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div>
-            <div class="loader-line-wrap">
-                <div class="loader-line"></div>
-            </div>
+        <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
     <div id="site" hidden>
