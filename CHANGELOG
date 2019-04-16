@@ -1,3 +1,3 @@
 -More types for answers are need.
 -Dynamic password for DB required.
--Fixed structure.sql, now it is a full server backup.
+-Added script which will be run then Open Server starts.
