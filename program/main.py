@@ -323,65 +323,121 @@ def readyQuest(*args):
 
 def editQuest(inst):
     """Open view of Question editor"""
+
+    # Clearing current view.
     editscreen.clear_widgets()
+
+    # Adding main view.
     view = ScrollView(
         size_hint=(1, None), size=(Window.width, Window.height), bar_width=7
     )
+
+    # Adding layout.
     layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
     layout.bind(minimum_height=layout.setter("height"))
+
+    # Getting ID from button.
     id = int(inst.id)
+
+    # Back button.
     back = Button(text=_("Back"), size_hint_y=None, height=60)
     back.bind(on_release=partial(changeScreen, "Making"))
-    layout.add_widget(back)
+
+    # Question label.
     editQuest.quest = Label(text=inst.text, size_hint_y=None)
+
+    # Adding UI components to layout.
+    layout.add_widget(back)
     layout.add_widget(editQuest.quest)
 
     # All our arrays for generating html file
     editQuest.input = []
     editQuest.check = []
     editQuest.subgrid = []
+
+    # Allocating memory for answers.
     if not editQuest.quest.text in questions:
         questions[editQuest.quest.text] = [""] * len(Make.variants[id])
+
+    # Allocating memory for correct/incorrect fields.
     if not editQuest.quest.text in answers:
         answers[editQuest.quest.text] = [False] * len(Make.variants[id])
+
+    # Displaying all answers.
     for i in range(len(Make.variants[id])):
+        # Layout to place checkbox and label in one line.
         subgrid = GridLayout(cols=2, spacing=0, size_hint_y=None, height=50)
+
+        # Input for answer text.
         inp = TextInput(
             height=50, size_hint_y=None, text=questions[editQuest.quest.text][i]
         )
+
+        # Checkbox for correct/incorrect answer flag.
         check = CheckBox(size_hint_x=None, width=50)
+
+        # Label with number of question.
         lbl = Label(text=_("Answer number:") + " " + str(i + 1), height=50)
+
+        # Adding to our arrays.
         editQuest.subgrid.append(subgrid)
         editQuest.input.append(inp)
         editQuest.check.append(check)
+
+        # Adding checkbox and label to subgrid.
         subgrid.add_widget(check)
         subgrid.add_widget(lbl)
+
+        # Adding all UI elements to layout.
         layout.add_widget(subgrid)
         layout.add_widget(inp)
+    # Adding to view our layout.
     view.add_widget(layout)
+
+    # Adding view to screen.
     editscreen.add_widget(view)
+
+    # Ready button.
     ready = Button(text=_("Ready"), size_hint_y=None, height=60)
     ready.bind(on_release=readyQuest)
+
+    # Adding button.
     layout.add_widget(ready)
+
+    # Changing current screen.
     changeScreen("Edit")
 
 
 def addQuestionWithAnswers(txt, num, *args):
     """Our popup for configuring question"""
+
+    # If number is incorrect don't do anything.
     try:
         num = int(num.text)
     except ValueError:
         return
+
+    # If length of question is equal to 0 don't do anything.
     if len(txt.text) == 0:
         return
+
+    # Add array of answers.
     if not hasattr(Make, "variants"):
         Make.variants = []
+
+    # Adding button to edit question.
     btn = Button(text=txt.text, size_hint_y=None, height=60, id=str(len(Make.variants)))
     btn.bind(on_release=editQuest)
+
+    # Adding place for answers.
     Make.variants.append([""] * num)
+
+    # Adding all UI elements to layout.
     Make.layout.add_widget(btn)
     Make.layout.remove_widget(Make.ready)
     Make.layout.add_widget(Make.ready)
+
+    # Disabling popups.
     addVariants.popup.dismiss()
     addQuest.popup.dismiss()
 
@@ -389,10 +445,10 @@ def addQuestionWithAnswers(txt, num, *args):
 def addVariants(btn):
     """Question with some answers. Primitive."""
 
-    #Main layout.
+    # Main layout.
     addVariants.layout = GridLayout(cols=1, rows=6, spacing=5)
 
-    #Our popup with input fields.
+    # Our popup with input fields.
     addVariants.popup = Popup(
         title=_("Configuring question"),
         content=addVariants.layout,
@@ -401,29 +457,29 @@ def addVariants(btn):
         auto_dismiss=False,
     )
 
-    #Label which inidicates where input for question is located.
+    # Label which inidicates where input for question is located.
     addVariants.label = Label(text=_("Write question here:"), size_hint=(1, 0.2))
 
-    #Text input for question.
+    # Text input for question.
     addVariants.text = TextInput()
 
-    #Label which indicates where input for number of answer is located.
+    # Label which indicates where input for number of answer is located.
     addVariants.number = Label(text=_("Number of answers:"), size_hint=(1, 0.2))
 
-    #Text input for number of question.
+    # Text input for number of question.
     addVariants.num = TextInput(input_filter="int", size_hint=(1, 0.4), multiline=False)
 
-    #Close button.
+    # Close button.
     addVariants.button = Button(text=_("Close"), size_hint=(1, 0.5))
     addVariants.button.bind(on_release=addVariants.popup.dismiss)
 
-    #Button to continue.
+    # Button to continue.
     addVariants.nxt = Button(text=_("Next"), size_hint=(1, 0.5))
     addVariants.nxt.bind(
         on_release=partial(addQuestionWithAnswers, addVariants.text, addVariants.num)
     )
 
-    #Adding all UI componets to layout.
+    # Adding all UI componets to layout.
     addVariants.layout.add_widget(addVariants.label)
     addVariants.layout.add_widget(addVariants.text)
     addVariants.layout.add_widget(addVariants.number)
@@ -431,16 +487,16 @@ def addVariants(btn):
     addVariants.layout.add_widget(addVariants.nxt)
     addVariants.layout.add_widget(addVariants.button)
 
-    #Showing popup.
+    # Showing popup.
     addVariants.popup.open()
 
 
 def addQuest(btn):
     """Popun where we can select type of question."""
-    #Main layout.
+    # Main layout.
     addQuest.layout = GridLayout(cols=1, spacing=5, size_hint_y=None)
 
-    #Popup window.
+    # Popup window.
     addQuest.popup = Popup(
         title=_("Choose type"),
         content=addQuest.layout,
@@ -449,21 +505,21 @@ def addQuest(btn):
         auto_dismiss=False,
     )
 
-    #Close button.
+    # Close button.
     addQuest.button = Button(text=_("Close"), size_hint_y=None, height=40)
     addQuest.button.bind(on_release=addQuest.popup.dismiss)
 
-    #Our types of question.
+    # Our types of question.
     addQuest.variants = Button(
         text=_("Question with answer variants"), size_hint_y=None, height=40
     )
     addQuest.variants.bind(on_release=addVariants)
 
-    #Adding all to layout.
+    # Adding all to layout.
     addQuest.layout.add_widget(addQuest.variants)
     addQuest.layout.add_widget(addQuest.button)
 
-    #Showing popup.
+    # Showing popup.
     addQuest.popup.open()
 
 
@@ -538,7 +594,7 @@ class MaketestApp(App):
     title = "Making test"
 
     def build(self):
-        self.icon = 'icon.png'
+        self.icon = "icon.png"
         sm.current = "Lang"
         return sm
 

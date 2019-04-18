@@ -1,3 +1,5 @@
 -More types for answers are need.
 -Dynamic password for DB required.
 -Added script which will be run then Open Server starts.
+-Fixed structure.sql (What time it was changed...).
+-Added more comments.
