@@ -3,9 +3,22 @@
     Deny from all
 </Files>
 
+ErrorDocument 404 /Pages/404.php
+ErrorDocument 403 /Pages/403.php
+
+AuthUserFile /OSPanel/domains/TestingSystem/.htpasswd
+AuthType Basic
+AuthName "Access to Panel"
+
+<FilesMatch "panel.php">
+  Require valid-user
+</FilesMatch>
+
+Options -Indexes
+
 IndexIgnore *
 
-RewriteEngine on 
+RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php [NC,L]
