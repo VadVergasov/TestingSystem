@@ -142,6 +142,42 @@ ALTER SEQUENCE public.eng_id_seq OWNED BY public.eng.id;
 
 
 --
+-- Name: history; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.history (
+    id integer NOT NULL,
+    ip character varying(255) NOT NULL,
+    score integer NOT NULL,
+    test_name character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.history OWNER TO postgres;
+
+--
+-- Name: history_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.history_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.history_id_seq OWNER TO postgres;
+
+--
+-- Name: history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.history_id_seq OWNED BY public.history.id;
+
+
+--
 -- Name: math; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -228,6 +264,13 @@ ALTER TABLE ONLY public.eng ALTER COLUMN id SET DEFAULT nextval('public.eng_id_s
 
 
 --
+-- Name: history id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.history ALTER COLUMN id SET DEFAULT nextval('public.history_id_seq'::regclass);
+
+
+--
 -- Name: math id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -242,71 +285,19 @@ ALTER TABLE ONLY public.rus ALTER COLUMN id SET DEFAULT nextval('public.rus_id_s
 
 
 --
--- Data for Name: bel; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.bel (id, name, description, answer) FROM stdin;
-\.
-
-
---
--- Data for Name: eng; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.eng (id, name, description, answer) FROM stdin;
-\.
-
-
---
--- Data for Name: math; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.math (id, name, description, answer) FROM stdin;
-\.
-
-
---
--- Data for Name: rus; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.rus (id, name, description, answer) FROM stdin;
-\.
-
-
---
--- Name: bel_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.bel_id_seq', 1, false);
-
-
---
--- Name: eng_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.eng_id_seq', 1, false);
-
-
---
--- Name: math_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.math_id_seq', 1, false);
-
-
---
--- Name: rus_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.rus_id_seq', 1, false);
-
-
---
 -- Name: eng eng_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.eng
     ADD CONSTRAINT eng_name_key UNIQUE (name);
+
+
+--
+-- Name: history history_test_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.history
+    ADD CONSTRAINT history_test_name_key UNIQUE (test_name);
 
 
 --
@@ -545,66 +536,6 @@ ALTER TABLE ONLY public.math ALTER COLUMN id SET DEFAULT nextval('public.math_id
 --
 
 ALTER TABLE ONLY public.rus ALTER COLUMN id SET DEFAULT nextval('public.rus_id_seq'::regclass);
-
-
---
--- Data for Name: bel; Type: TABLE DATA; Schema: public; Owner: TestingSystem
---
-
-COPY public.bel (id, name, description, answer) FROM stdin;
-\.
-
-
---
--- Data for Name: eng; Type: TABLE DATA; Schema: public; Owner: TestingSystem
---
-
-COPY public.eng (id, name, description, answer) FROM stdin;
-\.
-
-
---
--- Data for Name: math; Type: TABLE DATA; Schema: public; Owner: TestingSystem
---
-
-COPY public.math (id, name, description, answer) FROM stdin;
-\.
-
-
---
--- Data for Name: rus; Type: TABLE DATA; Schema: public; Owner: TestingSystem
---
-
-COPY public.rus (id, name, description, answer) FROM stdin;
-\.
-
-
---
--- Name: bel_id_seq; Type: SEQUENCE SET; Schema: public; Owner: TestingSystem
---
-
-SELECT pg_catalog.setval('public.bel_id_seq', 1, false);
-
-
---
--- Name: eng_id_seq; Type: SEQUENCE SET; Schema: public; Owner: TestingSystem
---
-
-SELECT pg_catalog.setval('public.eng_id_seq', 1, false);
-
-
---
--- Name: math_id_seq; Type: SEQUENCE SET; Schema: public; Owner: TestingSystem
---
-
-SELECT pg_catalog.setval('public.math_id_seq', 1, false);
-
-
---
--- Name: rus_id_seq; Type: SEQUENCE SET; Schema: public; Owner: TestingSystem
---
-
-SELECT pg_catalog.setval('public.rus_id_seq', 1, false);
 
 
 --

@@ -36,3 +36,28 @@ function getAns($lang, $testname)
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC)["answer"];
 }
+
+function clearHistory()
+{
+    $db = init();
+    $sql = 'TRUNCATE TABLE history';
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+}
+
+function getHistory()
+{
+    $db = init();
+    $sql = 'SELECT * FROM history';
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt;
+}
+
+function addToHistory($ip, $score)
+{
+    $db = init();
+    $sql = 'INSERT INTO history("ip", "score") values (\'%1$s\', \'%2$s\')';
+    $stmt = $db->prepare(sprintf($sql, $ip, $score));
+    $stmt->execute();
+}

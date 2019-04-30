@@ -24,6 +24,9 @@ while ($_POST[strval($i)]) {
     $i++;
 }
 
-echo "<h1>" . max(0, $right) / $all * 100 . "%</h1>";
+$score = max(0, $right) / $all * 100;
+
+addToHistory($_SERVER["REMOTE_ADDR"], $score);
+echo "<h1>" . $score . "%</h1>";
 
 require("../Templates/foot.php");

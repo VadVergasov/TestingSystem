@@ -1,5 +1,6 @@
 -More types for answers are need.
 -Dynamic password for DB required.
--Added panel page for future use.
--Added 404 and 403 errors pages.
--Added password to panel page.
+-Added panel for teacher where he can see log of submits.
+-Added function in postgresql.php for panel.
+-Added response.php for working with AJAX.
+-Other minor changes.
