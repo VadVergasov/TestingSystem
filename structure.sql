@@ -106,6 +106,42 @@ ALTER SEQUENCE public.bel_id_seq OWNED BY public.bel.id;
 
 
 --
+-- Name: bio; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.bio (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    description text,
+    answer text
+);
+
+
+ALTER TABLE public.bio OWNER TO postgres;
+
+--
+-- Name: bio_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.bio_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.bio_id_seq OWNER TO postgres;
+
+--
+-- Name: bio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.bio_id_seq OWNED BY public.bio.id;
+
+
+--
 -- Name: eng; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -142,14 +178,50 @@ ALTER SEQUENCE public.eng_id_seq OWNED BY public.eng.id;
 
 
 --
+-- Name: geo; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.geo (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    description text,
+    answer text
+);
+
+
+ALTER TABLE public.geo OWNER TO postgres;
+
+--
+-- Name: geo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.geo_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.geo_id_seq OWNER TO postgres;
+
+--
+-- Name: geo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.geo_id_seq OWNED BY public.geo.id;
+
+
+--
 -- Name: history; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.history (
     id integer NOT NULL,
-    ip character varying(255) NOT NULL,
-    score integer NOT NULL,
-    test_name character varying(255) NOT NULL
+    ip character varying(255),
+    score integer,
+    test_name text NOT NULL
 );
 
 
@@ -175,6 +247,42 @@ ALTER TABLE public.history_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE public.history_id_seq OWNED BY public.history.id;
+
+
+--
+-- Name: inf; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.inf (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    description text,
+    answer text
+);
+
+
+ALTER TABLE public.inf OWNER TO postgres;
+
+--
+-- Name: inf_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.inf_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inf_id_seq OWNER TO postgres;
+
+--
+-- Name: inf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.inf_id_seq OWNED BY public.inf.id;
 
 
 --
@@ -211,6 +319,42 @@ ALTER TABLE public.math_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE public.math_id_seq OWNED BY public.math.id;
+
+
+--
+-- Name: phy; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.phy (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    description text,
+    answer text
+);
+
+
+ALTER TABLE public.phy OWNER TO postgres;
+
+--
+-- Name: phy_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.phy_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phy_id_seq OWNER TO postgres;
+
+--
+-- Name: phy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.phy_id_seq OWNED BY public.phy.id;
 
 
 --
@@ -257,10 +401,24 @@ ALTER TABLE ONLY public.bel ALTER COLUMN id SET DEFAULT nextval('public.bel_id_s
 
 
 --
+-- Name: bio id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.bio ALTER COLUMN id SET DEFAULT nextval('public.bio_id_seq'::regclass);
+
+
+--
 -- Name: eng id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.eng ALTER COLUMN id SET DEFAULT nextval('public.eng_id_seq'::regclass);
+
+
+--
+-- Name: geo id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.geo ALTER COLUMN id SET DEFAULT nextval('public.geo_id_seq'::regclass);
 
 
 --
@@ -271,6 +429,13 @@ ALTER TABLE ONLY public.history ALTER COLUMN id SET DEFAULT nextval('public.hist
 
 
 --
+-- Name: inf id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inf ALTER COLUMN id SET DEFAULT nextval('public.inf_id_seq'::regclass);
+
+
+--
 -- Name: math id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -278,10 +443,25 @@ ALTER TABLE ONLY public.math ALTER COLUMN id SET DEFAULT nextval('public.math_id
 
 
 --
+-- Name: phy id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.phy ALTER COLUMN id SET DEFAULT nextval('public.phy_id_seq'::regclass);
+
+
+--
 -- Name: rus id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.rus ALTER COLUMN id SET DEFAULT nextval('public.rus_id_seq'::regclass);
+
+
+--
+-- Name: bio bio_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.bio
+    ADD CONSTRAINT bio_name_key UNIQUE (name);
 
 
 --
@@ -293,11 +473,19 @@ ALTER TABLE ONLY public.eng
 
 
 --
--- Name: history history_test_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: geo geo_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.history
-    ADD CONSTRAINT history_test_name_key UNIQUE (test_name);
+ALTER TABLE ONLY public.geo
+    ADD CONSTRAINT geo_name_key UNIQUE (name);
+
+
+--
+-- Name: inf inf_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inf
+    ADD CONSTRAINT inf_name_key UNIQUE (name);
 
 
 --
@@ -306,6 +494,14 @@ ALTER TABLE ONLY public.history
 
 ALTER TABLE ONLY public.math
     ADD CONSTRAINT math_name_key UNIQUE (name);
+
+
+--
+-- Name: phy phy_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.phy
+    ADD CONSTRAINT phy_name_key UNIQUE (name);
 
 
 --

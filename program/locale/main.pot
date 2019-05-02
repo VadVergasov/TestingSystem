@@ -2,10 +2,11 @@
 # Copyright (C) YEAR ORGANIZATION
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-13 22:38+0300\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-05-02 21:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,89 +14,104 @@ msgstr ""
 "Content-Type: text/plain; charset=cp1251\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.2.1\n"
 
-
-#: main.py:122
+#: main.py:123
 msgid "Test name can't be blank!"
 msgstr ""
 
-#: main.py:125
+#: main.py:126
 msgid "You didn't configure questions!"
 msgstr ""
 
-#: main.py:137 main.py:161 main.py:172
+#: main.py:138 main.py:165 main.py:178
 msgid "Check if server is running. Try again or ask for help."
 msgstr ""
 
-#: main.py:190 main.py:283
+#: main.py:197 main.py:294
 msgid "Math"
 msgstr ""
 
-#: main.py:192 main.py:277
+#: main.py:199 main.py:292
 msgid "Russian"
 msgstr ""
 
-#: main.py:194 main.py:280
+#: main.py:201 main.py:293
 msgid "Belarussian"
 msgstr ""
 
-#: main.py:196 main.py:274
+#: main.py:203 main.py:291
 msgid "English"
 msgstr ""
 
-#: main.py:268
+#: main.py:205 main.py:295
+msgid "Geography"
+msgstr ""
+
+#: main.py:207 main.py:296
+msgid "Informatics"
+msgstr ""
+
+#: main.py:209 main.py:297
+msgid "Physics"
+msgstr ""
+
+#: main.py:211 main.py:298
+msgid "Biology"
+msgstr ""
+
+#: main.py:287
 msgid "Choose subject"
 msgstr ""
 
-#: main.py:293 main.py:326 main.py:438
+#: main.py:310 main.py:358 main.py:554
 msgid "Back"
 msgstr ""
 
-#: main.py:346
+#: main.py:395
 msgid "Answer number:"
 msgstr ""
 
-#: main.py:356 main.py:454
+#: main.py:416 main.py:576
 msgid "Ready"
 msgstr ""
 
-#: main.py:385
+#: main.py:468
 msgid "Configuring question"
 msgstr ""
 
-#: main.py:391
+#: main.py:476
 msgid "Write question here:"
 msgstr ""
 
-#: main.py:393
+#: main.py:482
 msgid "Number of answers:"
 msgstr ""
 
-#: main.py:395 main.py:419
+#: main.py:488 main.py:524
 msgid "Close"
 msgstr ""
 
-#: main.py:397
+#: main.py:492
 msgid "Next"
 msgstr ""
 
-#: main.py:413
+#: main.py:516
 msgid "Choose type"
 msgstr ""
 
-#: main.py:422
+#: main.py:529
 msgid "Question with answer variants"
 msgstr ""
 
-#: main.py:441
+#: main.py:558
 msgid "Name of test"
 msgstr ""
 
-#: main.py:446
+#: main.py:565
 msgid "Test description"
 msgstr ""
 
-#: main.py:451
+#: main.py:572
 msgid "More"
 msgstr ""
-

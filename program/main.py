@@ -73,7 +73,7 @@ def readyTest(number):
     )
     end = "\n<?php\nrequire('../Templates/foot.php');\n?>"
     doc, tag, text, line = Doc().ttl()
-    with tag("form", action="../Pages/checker.php", method="post", autocomplete="off"):
+    with tag("form", action="../Pages/checker", method="post", autocomplete="off"):
         doc.line("input", "", type="hidden", name="Lang", value=str(subject))
         doc.line("input", "", type="hidden", name="Name", value=str(Make.name.text))
         num = 0
@@ -202,6 +202,14 @@ def changeSubject(sub):
         subject = "Bel"
     elif sub == _("English"):
         subject = "Eng"
+    elif sub == _("Geography"):
+        subject = "Geo"
+    elif sub == _("Informatics"):
+        subject = "Inf"
+    elif sub == _("Physics"):
+        subject = "Phy"
+    elif sub == _("Biology"):
+        subject = "Bio"
 
 
 def changeLanguage(lang):
@@ -268,37 +276,38 @@ def Lang():
 
 def Subject():
     """Second screen. Subject selection"""
-    Subject.layout = FloatLayout(size=(300, 300))
+    Subject.view = ScrollView(
+        size_hint=(1, None), size=(Window.width, Window.height), bar_width=7
+    )
+
+    Subject.layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
+    Subject.layout.bind(minimum_height=Subject.layout.setter("height"))
 
     # Label
-    Subject.label = Label(
-        text=_("Choose subject"), size_hint=(0.5, 0.1), pos_hint={"x": 0.25, "y": 0.9}
-    )
+    Subject.label = Label(text=_("Choose subject"), size_hint_y=None, height=60)
     Subject.layout.add_widget(Subject.label)
 
     # Subject buttons
-    Subject.sub1 = Button(
-        text=_("English"), size_hint=(0.5, 0.1), pos_hint={"x": 0.25, "y": 0.8}
-    )
-    Subject.sub2 = Button(
-        text=_("Russian"), size_hint=(0.5, 0.1), pos_hint={"x": 0.25, "y": 0.7}
-    )
-    Subject.sub3 = Button(
-        text=_("Belarussian"), size_hint=(0.5, 0.1), pos_hint={"x": 0.25, "y": 0.6}
-    )
-    Subject.sub4 = Button(
-        text=_("Math"), size_hint=(0.5, 0.1), pos_hint={"x": 0.25, "y": 0.5}
-    )
+    Subject.sub1 = Button(text=_("English"), size_hint_y=None, height=60)
+    Subject.sub2 = Button(text=_("Russian"), size_hint_y=None, height=60)
+    Subject.sub3 = Button(text=_("Belarussian"), size_hint_y=None, height=60)
+    Subject.sub4 = Button(text=_("Math"), size_hint_y=None, height=60)
+    Subject.sub5 = Button(text=_("Geography"), size_hint_y=None, height=60)
+    Subject.sub6 = Button(text=_("Informatics"), size_hint_y=None, height=60)
+    Subject.sub7 = Button(text=_("Physics"), size_hint_y=None, height=60)
+    Subject.sub8 = Button(text=_("Biology"), size_hint_y=None, height=60)
 
     # binding subject buttons
     Subject.sub1.bind(on_release=subjectChange)
     Subject.sub2.bind(on_release=subjectChange)
     Subject.sub3.bind(on_release=subjectChange)
     Subject.sub4.bind(on_release=subjectChange)
+    Subject.sub5.bind(on_release=subjectChange)
+    Subject.sub6.bind(on_release=subjectChange)
+    Subject.sub7.bind(on_release=subjectChange)
+    Subject.sub8.bind(on_release=subjectChange)
 
-    Subject.back = Button(
-        text=_("Back"), size_hint=(0.5, 0.1), pos_hint={"x": 0.25, "y": 0.1}
-    )
+    Subject.back = Button(text=_("Back"), size_hint_y=None, height=60)
     Subject.back.bind(on_release=partial(changeScreen, "Lang"))
 
     # Adding all widgets to layout
@@ -306,10 +315,16 @@ def Subject():
     Subject.layout.add_widget(Subject.sub2)
     Subject.layout.add_widget(Subject.sub3)
     Subject.layout.add_widget(Subject.sub4)
+    Subject.layout.add_widget(Subject.sub5)
+    Subject.layout.add_widget(Subject.sub6)
+    Subject.layout.add_widget(Subject.sub7)
+    Subject.layout.add_widget(Subject.sub8)
     Subject.layout.add_widget(Subject.back)
 
+    Subject.view.add_widget(Subject.layout)
+
     # Adding screen to ScreenManager
-    subscreen.add_widget(Subject.layout)
+    subscreen.add_widget(Subject.view)
 
 
 def readyQuest(*args):

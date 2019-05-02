@@ -1,6 +1,7 @@
 -More types for answers are need.
 -Dynamic password for DB required.
--Added panel for teacher where he can see log of submits.
--Added function in postgresql.php for panel.
--Added response.php for working with AJAX.
--Other minor changes.
+-Added more subjctes.
+-Added more tables for new subjects.
+-Added more translates.
+-Fixed error in checker.
+-Updated structure.sql

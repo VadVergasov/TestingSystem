@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-04-13 22:38+0300\n"
-"PO-Revision-Date: 2019-04-13 22:39+0300\n"
+"POT-Creation-Date: 2019-05-02 21:01+0300\n"
+"PO-Revision-Date: 2019-05-02 21:03+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,86 +17,102 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Language: be\n"
 
-#: main.py:122
+#: main.py:123
 msgid "Test name can't be blank!"
 msgstr "Iмя теста не можа быць пустым!"
 
-#: main.py:125
+#: main.py:126
 msgid "You didn't configure questions!"
 msgstr "Вы не наладзiлi пытаннi!"
 
-#: main.py:137 main.py:161 main.py:172
+#: main.py:138 main.py:165 main.py:178
 msgid "Check if server is running. Try again or ask for help."
 msgstr "Праверце, калі сервер працуе. Паспрабуйце зноў або папрасіце аб дапамозе."
 
-#: main.py:190 main.py:283
+#: main.py:197 main.py:294
 msgid "Math"
 msgstr "Матыматыка"
 
-#: main.py:192 main.py:277
+#: main.py:199 main.py:292
 msgid "Russian"
 msgstr "Руская мова"
 
-#: main.py:194 main.py:280
+#: main.py:201 main.py:293
 msgid "Belarussian"
 msgstr "Беларуская мова"
 
-#: main.py:196 main.py:274
+#: main.py:203 main.py:291
 msgid "English"
 msgstr "Англійская мова"
 
-#: main.py:268
+#: main.py:205 main.py:295
+msgid "Geography"
+msgstr "Геаграфiя"
+
+#: main.py:207 main.py:296
+msgid "Informatics"
+msgstr "Iнфармацiка"
+
+#: main.py:209 main.py:297
+msgid "Physics"
+msgstr "Фiзiка"
+
+#: main.py:211 main.py:298
+msgid "Biology"
+msgstr "Бiалогiя"
+
+#: main.py:287
 msgid "Choose subject"
 msgstr "Выберыце прадмет"
 
-#: main.py:293 main.py:326 main.py:438
+#: main.py:310 main.py:358 main.py:554
 msgid "Back"
 msgstr "Назад"
 
-#: main.py:346
+#: main.py:395
 msgid "Answer number:"
 msgstr "Нумар адказу:"
 
-#: main.py:356 main.py:454
+#: main.py:416 main.py:576
 msgid "Ready"
 msgstr "Гатова"
 
-#: main.py:385
+#: main.py:468
 msgid "Configuring question"
 msgstr "Настройка пытання"
 
-#: main.py:391
+#: main.py:476
 msgid "Write question here:"
 msgstr "Напiшыце пытанне тут:"
 
-#: main.py:393
+#: main.py:482
 msgid "Number of answers:"
 msgstr "Колькасць адказаў:"
 
-#: main.py:395 main.py:419
+#: main.py:488 main.py:524
 msgid "Close"
 msgstr "Зачыніць"
 
-#: main.py:397
+#: main.py:492
 msgid "Next"
 msgstr "Далей"
 
-#: main.py:413
+#: main.py:516
 msgid "Choose type"
 msgstr "Выберыце тып"
 
-#: main.py:422
+#: main.py:529
 msgid "Question with answer variants"
 msgstr "Пытанне з варыянтамi адказу"
 
-#: main.py:441
+#: main.py:558
 msgid "Name of test"
 msgstr "Iмя теста"
 
-#: main.py:446
+#: main.py:565
 msgid "Test description"
 msgstr "Апiсанне теста"
 
-#: main.py:451
+#: main.py:572
 msgid "More"
 msgstr "Яшчэ"

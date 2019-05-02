@@ -54,10 +54,10 @@ function getHistory()
     return $stmt;
 }
 
-function addToHistory($ip, $score)
+function addToHistory($ip, $score, $name)
 {
     $db = init();
-    $sql = 'INSERT INTO history("ip", "score") values (\'%1$s\', \'%2$s\')';
-    $stmt = $db->prepare(sprintf($sql, $ip, $score));
+    $sql = 'INSERT INTO history("ip", "score", "test_name") values (\'%1$s\', \'%2$s\', \'%3$s\')';
+    $stmt = $db->prepare(sprintf($sql, $ip, $score, $name));
     $stmt->execute();
 }

@@ -32,7 +32,7 @@ if ($_GET["p"] == "") {
         $stmt = getTests($_GET["p"]);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo "<tr><th style='font-weight: lighter;'>";
-            ?><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/<?php echo $_GET["p"]; ?>/<?php echo $row['id'] ?>"><?php echo $row["name"]; ?></a>
+            ?><a href="http://<?php echo $site ?>/<?php echo $_GET["p"]; ?>/<?php echo $row['id'] ?>"><?php echo $row["name"]; ?></a>
             <?php echo "</th><th style='font-weight: lighter;'>";
             echo $row["description"];
             echo "</th></tr>";
