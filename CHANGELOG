@@ -5,3 +5,4 @@
 -Added correct/incorrect number of answers.
 -Added new subjects to list in tests.php.
 -Added pre_start script to handle Open Server Error.
+-Added and fixed errors.

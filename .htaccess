@@ -5,6 +5,7 @@
 
 ErrorDocument 404 /Pages/404.php
 ErrorDocument 403 /Pages/403.php
+ErrorDocument 401 /Pages/401.php
 
 AuthUserFile /OSPanel/domains/TestingSystem/.htpasswd
 AuthUserFile /TestingSystemBuild/domains/TestingSystem/.htpasswd

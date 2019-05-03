@@ -1,5 +1,5 @@
 <?php
-$title = "Error 404";
+$title = "Error 403";
 require("../Templates/head.php");
 ?>
 <h1>Вам запрещен доступ к данной части системы.</h1>
