@@ -7,6 +7,7 @@ ErrorDocument 404 /Pages/404.php
 ErrorDocument 403 /Pages/403.php
 
 AuthUserFile /OSPanel/domains/TestingSystem/.htpasswd
+AuthUserFile /TestingSystemBuild/domains/TestingSystem/.htpasswd
 AuthType Basic
 AuthName "Access to Panel"
 

@@ -1,7 +1,6 @@
 -More types for answers are need.
 -Dynamic password for DB required.
--Added more subjctes.
--Added more tables for new subjects.
--Added more translates.
--Fixed error in checker.
--Updated structure.sql
+-Updated structure.sql.
+-Added alternative path to .htpasswd.
+-Added correct/incorrect number of answers.
+-Added new subjects to list in tests.php.

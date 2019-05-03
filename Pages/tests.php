@@ -10,6 +10,10 @@ if ($_GET["p"] == "") {
         <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Math">Математика</a></li>
         <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Rus">Русский</a></li>
         <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Eng">Анлийский</a></li>
+        <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Geo">География</a></li>
+        <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Inf">Информатика</a></li>
+        <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Phy">Физика</a></li>
+        <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Bio">Биология</a></li>
     </ol>
 <?php
 } else {

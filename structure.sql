@@ -220,8 +220,8 @@ ALTER SEQUENCE public.geo_id_seq OWNED BY public.geo.id;
 CREATE TABLE public.history (
     id integer NOT NULL,
     ip character varying(255),
-    score integer,
-    test_name text NOT NULL
+    score text,
+    test_name character varying(255) NOT NULL
 );
 
 

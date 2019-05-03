@@ -9,7 +9,7 @@ if ($_POST['type'] == 'all') {
         echo $row['ip'];
         echo "</td><td>";
         echo $row['score'];
-        echo "%</td><td>";
+        echo "</td><td>";
         echo $row['test_name'];
         echo "</td></tr>";
     }
