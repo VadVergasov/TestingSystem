@@ -35,10 +35,24 @@ if ($_GET["p"] == "") {
         $title = "Биология";
     }
     require("../Templates/head.php"); ?>
+    <script>
+        function deleteTest(id) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    location.reload();
+                }
+            };
+            xhttp.open("POST", "response.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("type=del&id=" + id.toString(10) + "&sub=<?php echo $_GET["p"]; ?>");
+        }
+    </script>
     <table style="width: 100%; font-size: 1.5em;">
         <tr>
             <th style="width: 25%; white-space: nowrap; font-weight: bold;">Название теста</th>
-            <th style="font-weight: bold;">Описание теста</th>
+            <th style="width: 70%; font-weight: bold;">Описание теста</th>
+            <th style="width: 5%; font-weight: bold;">Удаление теста</th>
         </tr>
         <?php
         $stmt = getTests($_GET["p"]);
@@ -47,7 +61,7 @@ if ($_GET["p"] == "") {
             ?><a href="http://<?php echo $site ?>/<?php echo $_GET["p"]; ?>/<?php echo $row['id'] ?>"><?php echo $row["name"]; ?></a>
             <?php echo "</td><td style='font-weight: lighter;'>";
             echo $row["description"];
-            echo "</td></tr>";
+            echo "</td><td><div style='text-align: center;'><input height=50 type='image' onclick='deleteTest(" . $row['id'] . ");' src='http://" . $site . "/Images/Delete.png'/></div></td></tr>";
         }
         ?>
     </table>

@@ -16,4 +16,7 @@ if ($_POST['type'] == 'all') {
 } else if ($_POST['type'] == 'clear') {
     clearHistory();
     echo "OK!";
+} else if ($_POST['type'] == 'del') {
+    deleteTest($_POST['sub'], $_POST['id']);
+    unlink("../" . $_POST['sub'] . "/" . $id . ".php");
 }

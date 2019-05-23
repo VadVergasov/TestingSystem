@@ -16,6 +16,10 @@ AuthName "Access to Panel"
   Require valid-user
 </FilesMatch>
 
+<FilesMatch "testcontrol.php">
+  Require valid-user
+</FilesMatch>
+
 Options -Indexes
 
 IndexIgnore *

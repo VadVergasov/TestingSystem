@@ -61,3 +61,11 @@ function addToHistory($ip, $score, $name)
     $stmt = $db->prepare(sprintf($sql, $ip, $score, $name));
     $stmt->execute();
 }
+
+function deleteTest($subject, $id)
+{
+    $db = init();
+    $sql = 'DELETE FROM %1$s WHERE id=%2$s';
+    $stmt = $db->prepare(sprintf($sql, $subject, $id));
+    $stmt->execute();
+}
