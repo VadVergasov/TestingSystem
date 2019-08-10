@@ -1,6 +1,6 @@
 # -*- mode: python -*-
 
-from kivy.deps import sdl2, glew
+from kivy_deps import sdl2, glew
 
 a = Analysis(['main.py'],
             pathex=[''],

@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 # Base imports
-import os, kivy, gettext
+import os
+import kivy
+import gettext
 
 # Import library for html generate
 from yattag import Doc
