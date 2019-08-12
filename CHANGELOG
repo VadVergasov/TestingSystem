@@ -1,3 +1,5 @@
 -More types for answers are need.
 -Dynamic password for DB required.
--Updated to kivy 1.11.1
+-Added test export to json format.
+-Readingg of json test is need.
+-Edited transalte.bat to Python 3.7.

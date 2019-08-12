@@ -1,1 +1,1 @@
-py "C:\Program Files\Python36\Tools\i18n\pygettext.py" -o locale/main.pot main.py
+py "C:\Program Files\Python37\Tools\i18n\pygettext.py" -o locale/main.pot main.py

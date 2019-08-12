@@ -2,11 +2,10 @@
 # Copyright (C) YEAR ORGANIZATION
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2019-05-02 21:01+0300\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-08-13 00:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,104 +13,109 @@ msgstr ""
 "Content-Type: text/plain; charset=cp1251\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
-"X-Generator: Poedit 2.2.1\n"
 
-#: main.py:123
+
+#: main.py:131 main.py:162
 msgid "Test name can't be blank!"
 msgstr ""
 
-#: main.py:126
+#: main.py:135 main.py:166
 msgid "You didn't configure questions!"
 msgstr ""
 
-#: main.py:138 main.py:165 main.py:178
+#: main.py:179 main.py:208 main.py:222
 msgid "Check if server is running. Try again or ask for help."
 msgstr ""
 
-#: main.py:197 main.py:294
-msgid "Math"
-msgstr ""
-
-#: main.py:199 main.py:292
-msgid "Russian"
-msgstr ""
-
-#: main.py:201 main.py:293
-msgid "Belarussian"
-msgstr ""
-
-#: main.py:203 main.py:291
-msgid "English"
-msgstr ""
-
-#: main.py:205 main.py:295
-msgid "Geography"
-msgstr ""
-
-#: main.py:207 main.py:296
-msgid "Informatics"
-msgstr ""
-
-#: main.py:209 main.py:297
-msgid "Physics"
-msgstr ""
-
-#: main.py:211 main.py:298
-msgid "Biology"
-msgstr ""
-
-#: main.py:287
-msgid "Choose subject"
-msgstr ""
-
-#: main.py:310 main.py:358 main.py:554
+#: main.py:238 main.py:362 main.py:410 main.py:608
 msgid "Back"
 msgstr ""
 
-#: main.py:395
+#: main.py:249 main.py:346
+msgid "Math"
+msgstr ""
+
+#: main.py:251 main.py:344
+msgid "Russian"
+msgstr ""
+
+#: main.py:253 main.py:345
+msgid "Belarussian"
+msgstr ""
+
+#: main.py:255 main.py:343
+msgid "English"
+msgstr ""
+
+#: main.py:257 main.py:347
+msgid "Geography"
+msgstr ""
+
+#: main.py:259 main.py:348
+msgid "Informatics"
+msgstr ""
+
+#: main.py:261 main.py:349
+msgid "Physics"
+msgstr ""
+
+#: main.py:263 main.py:350
+msgid "Biology"
+msgstr ""
+
+#: main.py:339
+msgid "Choose subject"
+msgstr ""
+
+#: main.py:447
 msgid "Answer number:"
 msgstr ""
 
-#: main.py:416 main.py:576
+#: main.py:468 main.py:630
 msgid "Ready"
 msgstr ""
 
-#: main.py:468
+#: main.py:522
 msgid "Configuring question"
 msgstr ""
 
-#: main.py:476
+#: main.py:530
 msgid "Write question here:"
 msgstr ""
 
-#: main.py:482
+#: main.py:536
 msgid "Number of answers:"
 msgstr ""
 
-#: main.py:488 main.py:524
+#: main.py:542 main.py:578
 msgid "Close"
 msgstr ""
 
-#: main.py:492
+#: main.py:546
 msgid "Next"
 msgstr ""
 
-#: main.py:516
+#: main.py:570
 msgid "Choose type"
 msgstr ""
 
-#: main.py:529
+#: main.py:583
 msgid "Question with answer variants"
 msgstr ""
 
-#: main.py:558
+#: main.py:612
 msgid "Name of test"
 msgstr ""
 
-#: main.py:565
+#: main.py:619
 msgid "Test description"
 msgstr ""
 
-#: main.py:572
+#: main.py:626
 msgid "More"
 msgstr ""
+
+#: main.py:633
+msgid "Export"
+msgstr ""
+

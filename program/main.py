@@ -4,6 +4,7 @@
 import os
 import kivy
 import gettext
+import json
 
 # Import library for html generate
 from yattag import Doc
@@ -54,6 +55,7 @@ Config.write()
 questions = {}
 answers = {}
 subject = None
+php_file = ""
 
 # Manager
 sm = ScreenManager()
@@ -66,7 +68,7 @@ editscreen = Screen(name="Edit")
 readyscreen = Screen(name="Ready")
 
 
-def readyTest(number):
+def generateFile():
     """Generates final php page."""
     begin = (
         "<?php\nrequire('../postgresql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('"
@@ -74,6 +76,8 @@ def readyTest(number):
         + "');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['id'] == $number) {\n        $title = $row['name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
     )
     end = "\n<?php\nrequire('../Templates/foot.php');\n?>"
+
+    # pylint: disable=unused-variable
     doc, tag, text, line = Doc().ttl()
     with tag("form", action="../Pages/checker", method="post", autocomplete="off"):
         doc.line("input", "", type="hidden", name="Lang", value=str(subject))
@@ -101,6 +105,12 @@ def readyTest(number):
                             )
             num += 1
         doc.stag("input", type="submit", text="send")
+    global php_file
+    php_file = begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end
+
+
+def readyTest(number):
+    generateFile()
     out = open(
         os.getcwd()[0 : os.getcwd().find("program")]
         + str(subject)
@@ -109,23 +119,52 @@ def readyTest(number):
         + ".php",
         "wb",
     )
-    out.write(
-        (begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end).encode(
-            "UTF-8"
-        )
-    )
+    out.write(php_file.encode("UTF-8"))
     out.close()
+
+
+def export(*args):
+    """Trying to get all fields in base"""
+    Ready()
+    changeScreen("Ready")
+    if Make.name.text == "":
+        Ready.label.text = _("Test name can't be blank!")
+        Ready.layout.add_widget(Ready.back)
+        return
+    elif len(questions) == 0:
+        Ready.label.text = _("You didn't configure questions!")
+        Ready.layout.add_widget(Ready.back)
+        return
+    generateFile()
+    to_export = {}
+    to_export["Test_name"] = Make.name.text
+    to_export["Test_description"] = Make.description.text
+    to_export["subject"] = subject
+
+    ans = ""
+    for i in answers.values():
+        for j in i:
+            ans += str(int(j))
+
+    to_export["answer"] = ans
+    to_export["file"] = php_file
+    out = open("test.json", "w")
+    out.write(json.dumps(to_export))
+    out.close()
+    Ready.label.text = "OK!"
 
 
 def lastScreen(*args):
     """Trying to get all fields in base"""
     Ready()
-    sm.current = "Ready"
+    changeScreen("Ready")
     if Make.name.text == "":
         Ready.label.text = _("Test name can't be blank!")
+        Ready.layout.add_widget(Ready.back)
         return
     elif len(questions) == 0:
         Ready.label.text = _("You didn't configure questions!")
+        Ready.layout.add_widget(Ready.back)
         return
     conn = None
     try:
@@ -140,8 +179,10 @@ def lastScreen(*args):
             Ready.label.text += _(
                 "Check if server is running. Try again or ask for help."
             )
+            Ready.layout.add_widget(Ready.back)
         else:
             Ready.label.text += str(e)
+            Ready.layout.add_widget(Ready.back)
         return
     try:
         cursor = conn.cursor()
@@ -166,6 +207,7 @@ def lastScreen(*args):
         Ready.label.text += (
             str(e) + "\n " + _("Check if server is running. Try again or ask for help.")
         )
+        Ready.layout.add_widget(Ready.back)
         return
     conn.commit()
     number = 0
@@ -179,6 +221,7 @@ def lastScreen(*args):
         Ready.label.text += (
             str(e) + "\n " + _("Check if server is running. Try again or ask for help.")
         )
+        Ready.layout.add_widget(Ready.back)
         return
     readyTest(number)
     conn.close()
@@ -186,8 +229,15 @@ def lastScreen(*args):
 
 
 def Ready():
+    #Clear screen to prevent text-on-text situation
+    readyscreen.clear_widgets()
+
     Ready.layout = FloatLayout(size=(300, 300))
     Ready.label = Label(text="", size_hint=(0.5, 0.1), pos_hint={"x": 0.25, "y": 0.6})
+    Ready.back = Button(
+        text=_("Back"), size_hint=(0.5, 0.1), pos_hint={"x": 0.25, "y": 0.8}
+    )
+    Ready.back.bind(on_release=partial(changeScreen, "Making"))
 
     Ready.layout.add_widget(Ready.label)
     readyscreen.add_widget(Ready.layout)
@@ -452,6 +502,8 @@ def addQuestionWithAnswers(txt, num, *args):
     # Adding all UI elements to layout.
     Make.layout.add_widget(btn)
     Make.layout.remove_widget(Make.ready)
+    Make.layout.remove_widget(Make.export)
+    Make.layout.add_widget(Make.export)
     Make.layout.add_widget(Make.ready)
 
     # Disabling popups.
@@ -578,6 +630,9 @@ def Make():
     Make.ready = Button(text=_("Ready"), size_hint_y=None, height=60)
     Make.ready.bind(on_release=lastScreen)
 
+    Make.export = Button(text=_("Export"), size_hint_y=None, height=60)
+    Make.export.bind(on_release=export)
+
     # Adding all UI elements to UI. Order is important, for more info read Kivy docs.
     Make.layout.add_widget(Make.back)
     Make.layout.add_widget(Make.name_text)
@@ -585,6 +640,7 @@ def Make():
     Make.layout.add_widget(Make.description_text)
     Make.layout.add_widget(Make.description)
     Make.layout.add_widget(Make.new)
+    Make.layout.add_widget(Make.export)
     Make.layout.add_widget(Make.ready)
 
     # Adding layout to view.
