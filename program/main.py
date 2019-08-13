@@ -56,6 +56,7 @@ questions = {}
 answers = {}
 subject = None
 php_file = ""
+ans = ""
 
 # Manager
 sm = ScreenManager()
@@ -109,8 +110,9 @@ def generateFile():
     php_file = begin + indent(doc.getvalue(), indentation="    ", newline="\r") + end
 
 
-def readyTest(number):
-    generateFile()
+def readyTest(number, imp=False):
+    if not imp:
+        generateFile()
     out = open(
         os.getcwd()[0 : os.getcwd().find("program")]
         + str(subject)
@@ -119,6 +121,7 @@ def readyTest(number):
         + ".php",
         "wb",
     )
+    global php_file
     out.write(php_file.encode("UTF-8"))
     out.close()
 
@@ -141,7 +144,6 @@ def export(*args):
     to_export["Test_description"] = Make.description.text
     to_export["subject"] = subject
 
-    ans = ""
     for i in answers.values():
         for j in i:
             ans += str(int(j))
@@ -154,7 +156,21 @@ def export(*args):
     Ready.label.text = "OK!"
 
 
-def lastScreen(*args):
+def imp(*args):
+    input_file = open("test.json", "r")
+    to_import = json.loads(input_file.read())
+    global subject
+    subject = to_import["subject"]
+    Make.name.text = to_import["Test_name"]
+    Make.description.text = to_import["Test_description"]
+    global ans
+    ans = to_import["answer"]
+    global php_file
+    php_file = to_import["file"]
+    lastScreen(True)
+
+
+def lastScreen(imp=False, *args):
     """Trying to get all fields in base"""
     Ready()
     changeScreen("Ready")
@@ -162,7 +178,7 @@ def lastScreen(*args):
         Ready.label.text = _("Test name can't be blank!")
         Ready.layout.add_widget(Ready.back)
         return
-    elif len(questions) == 0:
+    elif len(questions) == 0 and not imp:
         Ready.label.text = _("You didn't configure questions!")
         Ready.layout.add_widget(Ready.back)
         return
@@ -186,10 +202,12 @@ def lastScreen(*args):
         return
     try:
         cursor = conn.cursor()
-        ans = ""
-        for i in answers.values():
-            for j in i:
-                ans += str(int(j))
+
+        global ans
+        if not imp:
+            for i in answers.values():
+                for j in i:
+                    ans += str(int(j))
 
         cursor.execute(
             "INSERT INTO "
@@ -223,13 +241,13 @@ def lastScreen(*args):
         )
         Ready.layout.add_widget(Ready.back)
         return
-    readyTest(number)
+    readyTest(number, imp)
     conn.close()
     Ready.label.text = "OK!"
 
 
 def Ready():
-    #Clear screen to prevent text-on-text situation
+    # Clear screen to prevent text-on-text situation
     readyscreen.clear_widgets()
 
     Ready.layout = FloatLayout(size=(300, 300))
@@ -604,6 +622,10 @@ def Make():
     # Option for ScrollView.
     Make.layout.bind(minimum_height=Make.layout.setter("height"))
 
+    #Import button.
+    Make.imp = Button(text=_("Import"), size_hint_y=None, height=70)
+    Make.imp.bind(on_release=imp)
+
     # Back button.
     Make.back = Button(text=_("Back"), size_hint_y=None, height=60)
     Make.back.bind(on_release=partial(changeScreen, "Subject"))
@@ -628,12 +650,13 @@ def Make():
 
     # Ready button to finish test "baking".
     Make.ready = Button(text=_("Ready"), size_hint_y=None, height=60)
-    Make.ready.bind(on_release=lastScreen)
+    Make.ready.bind(on_release=partial(lastScreen, False))
 
     Make.export = Button(text=_("Export"), size_hint_y=None, height=60)
     Make.export.bind(on_release=export)
 
     # Adding all UI elements to UI. Order is important, for more info read Kivy docs.
+    Make.layout.add_widget(Make.imp)
     Make.layout.add_widget(Make.back)
     Make.layout.add_widget(Make.name_text)
     Make.layout.add_widget(Make.name)

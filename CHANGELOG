@@ -1,5 +1,5 @@
 -More types for answers are need.
 -Dynamic password for DB required.
--Added test export to json format.
--Readingg of json test is need.
--Edited transalte.bat to Python 3.7.
+-Added import of json file. To import place test.json in directory with .exe or .py
+-It is necessary to add the ability to import multiple tests.
+-Edited about.
