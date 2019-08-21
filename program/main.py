@@ -5,6 +5,8 @@ import os
 import kivy
 import gettext
 import json
+from os import listdir
+from os.path import isfile, join
 
 # Import library for html generate
 from yattag import Doc
@@ -144,30 +146,33 @@ def export(*args):
     to_export["Test_description"] = Make.description.text
     to_export["subject"] = subject
 
+    global ans
     for i in answers.values():
         for j in i:
             ans += str(int(j))
 
     to_export["answer"] = ans
     to_export["file"] = php_file
-    out = open("test.json", "w")
+    out = open("tests/" + Make.name.text + ".json", "w")
     out.write(json.dumps(to_export))
     out.close()
     Ready.label.text = "OK!"
 
 
 def imp(*args):
-    input_file = open("test.json", "r")
-    to_import = json.loads(input_file.read())
-    global subject
-    subject = to_import["subject"]
-    Make.name.text = to_import["Test_name"]
-    Make.description.text = to_import["Test_description"]
-    global ans
-    ans = to_import["answer"]
-    global php_file
-    php_file = to_import["file"]
-    lastScreen(True)
+    all_tests = [f for f in listdir("tests") if isfile(join("tests", f))]
+    for i in all_tests:
+        input_file = open("tests/" + i, "r")
+        to_import = json.loads(input_file.read())
+        global subject
+        subject = to_import["subject"]
+        Make.name.text = to_import["Test_name"]
+        Make.description.text = to_import["Test_description"]
+        global ans
+        ans = to_import["answer"]
+        global php_file
+        php_file = to_import["file"]
+        lastScreen(True)
 
 
 def lastScreen(imp=False, *args):
@@ -622,7 +627,7 @@ def Make():
     # Option for ScrollView.
     Make.layout.bind(minimum_height=Make.layout.setter("height"))
 
-    #Import button.
+    # Import button.
     Make.imp = Button(text=_("Import"), size_hint_y=None, height=70)
     Make.imp.bind(on_release=imp)
 

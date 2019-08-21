@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-08-13 00:24+0300\n"
-"PO-Revision-Date: 2019-08-13 00:28+0300\n"
+"POT-Creation-Date: 2019-08-21 14:22+0300\n"
+"PO-Revision-Date: 2019-08-21 14:26+0300\n"
 "Last-Translator: Vadim Vergasov <vadim.vergasov2003@gmail.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -17,106 +17,110 @@ msgstr ""
 "X-Generator: Poedit 2.2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main.py:131 main.py:162
+#: main.py:136 main.py:183
 msgid "Test name can't be blank!"
 msgstr ""
 
-#: main.py:135 main.py:166
+#: main.py:140 main.py:187
 msgid "You didn't configure questions!"
 msgstr ""
 
-#: main.py:179 main.py:208 main.py:222
+#: main.py:200 main.py:231 main.py:245
 msgid "Check if server is running. Try again or ask for help."
 msgstr ""
 
-#: main.py:238 main.py:362 main.py:410 main.py:608
+#: main.py:261 main.py:385 main.py:433 main.py:635
 msgid "Back"
 msgstr ""
 
-#: main.py:249 main.py:346
+#: main.py:272 main.py:369
 msgid "Math"
 msgstr ""
 
-#: main.py:251 main.py:344
+#: main.py:274 main.py:367
 msgid "Russian"
 msgstr ""
 
-#: main.py:253 main.py:345
+#: main.py:276 main.py:368
 msgid "Belarussian"
 msgstr ""
 
-#: main.py:255 main.py:343
+#: main.py:278 main.py:366
 msgid "English"
 msgstr ""
 
-#: main.py:257 main.py:347
+#: main.py:280 main.py:370
 msgid "Geography"
 msgstr ""
 
-#: main.py:259 main.py:348
+#: main.py:282 main.py:371
 msgid "Informatics"
 msgstr ""
 
-#: main.py:261 main.py:349
+#: main.py:284 main.py:372
 msgid "Physics"
 msgstr ""
 
-#: main.py:263 main.py:350
+#: main.py:286 main.py:373
 msgid "Biology"
 msgstr ""
 
-#: main.py:339
+#: main.py:362
 msgid "Choose subject"
 msgstr ""
 
-#: main.py:447
+#: main.py:470
 msgid "Answer number:"
 msgstr ""
 
-#: main.py:468 main.py:630
+#: main.py:491 main.py:657
 msgid "Ready"
 msgstr ""
 
-#: main.py:522
+#: main.py:545
 msgid "Configuring question"
 msgstr ""
 
-#: main.py:530
+#: main.py:553
 msgid "Write question here:"
 msgstr ""
 
-#: main.py:536
+#: main.py:559
 msgid "Number of answers:"
 msgstr ""
 
-#: main.py:542 main.py:578
+#: main.py:565 main.py:601
 msgid "Close"
 msgstr ""
 
-#: main.py:546
+#: main.py:569
 msgid "Next"
 msgstr ""
 
-#: main.py:570
+#: main.py:593
 msgid "Choose type"
 msgstr ""
 
-#: main.py:583
+#: main.py:606
 msgid "Question with answer variants"
 msgstr ""
 
-#: main.py:612
+#: main.py:631
+msgid "Import"
+msgstr ""
+
+#: main.py:639
 msgid "Name of test"
 msgstr ""
 
-#: main.py:619
+#: main.py:646
 msgid "Test description"
 msgstr ""
 
-#: main.py:626
+#: main.py:653
 msgid "More"
 msgstr ""
 
-#: main.py:633
+#: main.py:660
 msgid "Export"
 msgstr ""

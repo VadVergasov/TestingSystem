@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TestingSystem\n"
+"POT-Creation-Date: 2019-08-21 20:45+0300\n"
+"PO-Revision-Date: 2019-08-21 20:45+0300\n"
+"Last-Translator: Vadim Vergasov <vadim.vergasov2003@gmail.com>\n"
+"Language-Team: Vadim Vergasov vadim.vergasov2003@gmail.com\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: index.php\n"
+"X-Poedit-SearchPath-1: Templates\n"
+"X-Poedit-SearchPath-2: Pages\n"
+
+#: Pages/about.php:18 Templates/head.php:59
+msgid "About"
+msgstr "Пра сістэму"
+
+#: Pages/about.php:21
+msgid ""
+"This test system was developed by Vadim Vergasov (VadVergasov), specially "
+"for the gymnasium №29 of Minsk. This test system can be used in other "
+"schools with the agreement of the author. Also a condition for use in other "
+"school is a link to the developer and the gymnasium."
+msgstr ""
+"Дадзеная тэставая сістэма распрацавана Вадзімам Вергасовым (VadVergasov), "
+"спецыяльна для гімназіі №29 г. Мінска. Дадзеная тэставая сістэма можа "
+"выкарыстоўвацца і ў іншых установах адукацыі з пагаднення аўтара. Гэтак жа "
+"ўмова для выкарыстання ў іншых установы з'яўляецца спасылка на распрацоўніка "
+"і гімназію."
+
+#: Pages/tests.php:20 Templates/head.php:47
+msgid "Tests"
+msgstr "Тэсты"
+
+#: Pages/tests.php:23
+msgid "Tests are available in the following subjects:"
+msgstr "Тэсты даступныя па наступных прадметах:"
+
+#: Pages/tests.php:25 Pages/tests.php:37 Templates/head.php:49
+msgid "Belarussian"
+msgstr "Беларуская мова"
+
+#: Pages/tests.php:26 Pages/tests.php:43 Templates/head.php:50
+msgid "Math"
+msgstr "Матыматыка"
+
+#: Pages/tests.php:27 Pages/tests.php:41 Templates/head.php:51
+msgid "Russian"
+msgstr "Руская мова"
+
+#: Pages/tests.php:28 Pages/tests.php:39 Templates/head.php:52
+msgid "English"
+msgstr "Англійская мова"
+
+#: Pages/tests.php:29 Pages/tests.php:47 Templates/head.php:53
+msgid "Geography"
+msgstr "Геаграфiя"
+
+#: Pages/tests.php:30 Pages/tests.php:45 Templates/head.php:54
+msgid "Informatics"
+msgstr "Iнфармацiка"
+
+#: Pages/tests.php:31 Pages/tests.php:49 Templates/head.php:55
+msgid "Physics"
+msgstr "Фiзiка"
+
+#: Pages/tests.php:32 Pages/tests.php:51 Templates/head.php:56
+msgid "Biology"
+msgstr "Бiалогiя"
+
+#: Pages/tests.php:56
+msgid "Test name"
+msgstr "Назва тэсту"
+
+#: Pages/tests.php:57
+msgid "Test description"
+msgstr "Апiсанне теста"
+
+#: Templates/head.php:46 index.php:18
+msgid "Main"
+msgstr "Галоўная"
+
+#: index.php:21
+msgid "Test system for subjects, with the dynamic addition of tests."
+msgstr "Тэставая сістэма для прадметаў, з дынамічным даданнем тэстаў."

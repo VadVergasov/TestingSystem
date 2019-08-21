@@ -42,21 +42,21 @@ if ($_SERVER['SERVER_PORT'] != 80) {
     <div id="site" hidden>
         <nav id="nav">
             <ul>
-                <li id="logo"><a href="http://<?php echo $site; ?>" style="padding: 0;"><img alt="Logo" src="../images/logo.png"></a></li>
-                <li><a href="http://<?php echo $site; ?>" class="nava">Главная</a></li>
-                <li><a href="http://<?php echo $site; ?>/Pages/tests" class="nava">Тесты</a>
+                <li id="logo"><a href="http://<?php echo $site; ?>/?lang=<?php echo $_GET['lang'] ?>" style="padding: 0;"><img alt="Logo" src="../images/logo.png"></a></li>
+                <li><a href="http://<?php echo $site; ?>/?lang=<?php echo $_GET['lang'] ?>" class="nava"><?php echo _("Main"); ?></a></li>
+                <li><a href="http://<?php echo $site; ?>/Pages/tests?lang=<?php echo $_GET['lang'] ?>" class="nava"><?php echo _("Tests"); ?></a>
                     <ul>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Bel">Белорусский</a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Math">Математика</a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Rus">Русский</a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Eng">Английский</a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Geo">Георгафия</a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Inf">Информатика</a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Phy">Физика</a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Bio">Биология</a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Bel&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Belarussian"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Math&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Math"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Rus&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Russian"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Eng&lang=<?php echo $_GET['lang'] ?>"><?php echo _("English"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Geo&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Geography"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Inf&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Informatics"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Phy&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Physics"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Bio&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Biology"); ?></a></li>
                     </ul>
                 </li>
-                <li style="float: right;"><a href="http://<?php echo $site; ?>/Pages/about" class="nava">Про систему</a></li>
+                <li style="float: right;"><a href="http://<?php echo $site; ?>/Pages/about?lang=<?php echo $_GET['lang'] ?>" class="nava"><?php echo _("About"); ?></a></li>
             </ul>
         </nav>
         <div id="content">

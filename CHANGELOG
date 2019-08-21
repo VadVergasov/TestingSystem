@@ -1,5 +1,9 @@
 -More types for answers are need.
 -Dynamic password for DB required.
--Added import of json file. To import place test.json in directory with .exe or .py
--It is necessary to add the ability to import multiple tests.
--Edited about.
+-Added translations.
+-Improved import/export function.
+-Edited testmake.spec to compile in one file.
+-Added new start.bat which should be placed in root of OSPanel and removed unuseful pre_start script.
+-Added one requirement to python for clear build.
+-Rewrited batch and shell scripts for working with onefile build.
+-Added translations for site, used external gettext implementation, because standart working bad on Windows.
