@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TestingSystem\n"
-"POT-Creation-Date: 2019-08-21 20:45+0300\n"
-"PO-Revision-Date: 2019-08-21 20:45+0300\n"
+"POT-Creation-Date: 2019-08-22 00:02+0300\n"
+"PO-Revision-Date: 2019-08-22 00:03+0300\n"
 "Last-Translator: Vadim Vergasov <vadim.vergasov2003@gmail.com>\n"
 "Language-Team: Vadim Vergasov vadim.vergasov2003@gmail.com\n"
 "Language: be\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-SearchPath-1: Templates\n"
 "X-Poedit-SearchPath-2: Pages\n"
 
-#: Pages/about.php:18 Templates/head.php:59
+#: Pages/about.php:18 Templates/head.php:62
 msgid "About"
 msgstr "Пра сістэму"
 
@@ -35,53 +35,81 @@ msgstr ""
 "ўмова для выкарыстання ў іншых установы з'яўляецца спасылка на распрацоўніка "
 "і гімназію."
 
-#: Pages/tests.php:20 Templates/head.php:47
-msgid "Tests"
-msgstr "Тэсты"
+#: Pages/panel.php:18
+msgid "Control panel"
+msgstr "Панель кiравання"
 
-#: Pages/tests.php:23
-msgid "Tests are available in the following subjects:"
-msgstr "Тэсты даступныя па наступных прадметах:"
+#: Pages/panel.php:41
+msgid "Clear history"
+msgstr "Ачысціць гісторыю"
 
-#: Pages/tests.php:25 Pages/tests.php:37 Templates/head.php:49
-msgid "Belarussian"
-msgstr "Беларуская мова"
+#: Pages/panel.php:44
+msgid "IP address"
+msgstr "IP адрас кампьютера"
 
-#: Pages/tests.php:26 Pages/tests.php:43 Templates/head.php:50
-msgid "Math"
-msgstr "Матыматыка"
+#: Pages/panel.php:45
+msgid "Status"
+msgstr "Статус"
 
-#: Pages/tests.php:27 Pages/tests.php:41 Templates/head.php:51
-msgid "Russian"
-msgstr "Руская мова"
-
-#: Pages/tests.php:28 Pages/tests.php:39 Templates/head.php:52
-msgid "English"
-msgstr "Англійская мова"
-
-#: Pages/tests.php:29 Pages/tests.php:47 Templates/head.php:53
-msgid "Geography"
-msgstr "Геаграфiя"
-
-#: Pages/tests.php:30 Pages/tests.php:45 Templates/head.php:54
-msgid "Informatics"
-msgstr "Iнфармацiка"
-
-#: Pages/tests.php:31 Pages/tests.php:49 Templates/head.php:55
-msgid "Physics"
-msgstr "Фiзiка"
-
-#: Pages/tests.php:32 Pages/tests.php:51 Templates/head.php:56
-msgid "Biology"
-msgstr "Бiалогiя"
-
-#: Pages/tests.php:56
+#: Pages/panel.php:46 Pages/testcontrol.php:69 Pages/tests.php:56
 msgid "Test name"
 msgstr "Назва тэсту"
 
-#: Pages/tests.php:57
+#: Pages/testcontrol.php:20 Pages/tests.php:20 Templates/head.php:47
+msgid "Tests"
+msgstr "Тэсты"
+
+#: Pages/testcontrol.php:23 Pages/tests.php:23
+msgid "Tests are available in the following subjects:"
+msgstr "Тэсты даступныя па наступных прадметах:"
+
+#: Pages/testcontrol.php:25 Pages/testcontrol.php:37 Pages/tests.php:25
+#: Pages/tests.php:37 Templates/head.php:49
+msgid "Belarussian"
+msgstr "Беларуская мова"
+
+#: Pages/testcontrol.php:26 Pages/testcontrol.php:43 Pages/tests.php:26
+#: Pages/tests.php:43 Templates/head.php:50
+msgid "Math"
+msgstr "Матыматыка"
+
+#: Pages/testcontrol.php:27 Pages/testcontrol.php:41 Pages/tests.php:27
+#: Pages/tests.php:41 Templates/head.php:51
+msgid "Russian"
+msgstr "Руская мова"
+
+#: Pages/testcontrol.php:28 Pages/testcontrol.php:39 Pages/tests.php:28
+#: Pages/tests.php:39 Templates/head.php:52
+msgid "English"
+msgstr "Англійская мова"
+
+#: Pages/testcontrol.php:29 Pages/testcontrol.php:47 Pages/tests.php:29
+#: Pages/tests.php:47 Templates/head.php:53
+msgid "Geography"
+msgstr "Геаграфiя"
+
+#: Pages/testcontrol.php:30 Pages/testcontrol.php:45 Pages/tests.php:30
+#: Pages/tests.php:45 Templates/head.php:54
+msgid "Informatics"
+msgstr "Iнфармацiка"
+
+#: Pages/testcontrol.php:31 Pages/testcontrol.php:49 Pages/tests.php:31
+#: Pages/tests.php:49 Templates/head.php:55
+msgid "Physics"
+msgstr "Фiзiка"
+
+#: Pages/testcontrol.php:32 Pages/testcontrol.php:51 Pages/tests.php:32
+#: Pages/tests.php:51 Templates/head.php:56
+msgid "Biology"
+msgstr "Бiалогiя"
+
+#: Pages/testcontrol.php:70 Pages/tests.php:57
 msgid "Test description"
 msgstr "Апiсанне теста"
+
+#: Pages/testcontrol.php:71
+msgid "Test delete"
+msgstr "Назва тэсту"
 
 #: Templates/head.php:46 index.php:18
 msgid "Main"

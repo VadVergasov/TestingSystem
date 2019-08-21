@@ -17,38 +17,38 @@ T_textdomain($locale);
 
 require("../postgresql.php");
 if ($_GET["p"] == "") {
-    $title = "Тесты";
+    $title = _("Tests");
     require("../Templates/head.php");
     ?>
-<h2>Доступны тесты по следующим предметам:</h2>
+<h2><?php echo _("Tests are available in the following subjects:"); ?></h2>
 <ol>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Bel">Белорусский</a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Math">Математика</a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Rus">Русский</a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Eng">Анлийский</a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Geo">География</a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Inf">Информатика</a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Phy">Физика</a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Bio">Биология</a></li>
+    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Bel&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Belarussian"); ?></a></li>
+    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Math&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Math"); ?></a></li>
+    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Rus&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Russian"); ?></a></li>
+    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Eng&lang=<?php echo $_GET['lang'] ?>"><?php echo _("English"); ?></a></li>
+    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Geo&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Geography"); ?></a></li>
+    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Inf&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Informatics"); ?></a></li>
+    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Phy&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Physics"); ?></a></li>
+    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Bio&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Biology"); ?></a></li>
 </ol>
 <?php
 } else {
     if ($_GET["p"] == "Bel") {
-        $title = "Белорусский язык";
+        $title = _("Belarussian");
     } else if ($_GET["p"] == "Eng") {
-        $title = "Английский язык";
+        $title = _("English");
     } else if ($_GET["p"] == "Rus") {
-        $title = "Русский язык";
+        $title = _("Russian");
     } else if ($_GET["p"] == "Math") {
-        $title = "Математика";
+        $title = _("Math");
     } else if ($_GET["p"] == "Inf") {
-        $title = "Информатика";
+        $title = _("Informatics");
     } else if ($_GET["p"] == "Geo") {
-        $title = "География";
+        $title = _("Geography");
     } else if ($_GET["p"] == "Phy") {
-        $title = "Физика";
+        $title = _("Physics");
     } else if ($_GET["p"] == "Bio") {
-        $title = "Биология";
+        $title = _("Biology");
     }
     require("../Templates/head.php"); ?>
 <script>
@@ -66,9 +66,9 @@ if ($_GET["p"] == "") {
 </script>
 <table style="width: 100%; font-size: 1.5em;">
     <tr>
-        <th style="width: 25%; white-space: nowrap; font-weight: bold;">Название теста</th>
-        <th style="width: 70%; font-weight: bold;">Описание теста</th>
-        <th style="width: 5%; font-weight: bold;">Удаление теста</th>
+        <th style="width: 25%; white-space: nowrap; font-weight: bold;"><?php echo _("Test name"); ?></th>
+        <th style="width: 70%; font-weight: bold;"><?php echo _("Test description"); ?></th>
+        <th style="width: 5%; font-weight: bold;"><?php echo _("Test delete"); ?></th>
     </tr>
     <?php
         $stmt = getTests($_GET["p"]);
