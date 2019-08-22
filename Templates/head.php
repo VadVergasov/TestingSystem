@@ -58,7 +58,7 @@ if ($_SERVER['SERVER_PORT'] != 80) {
                 </li>
                 <li style="float: right;"><a href="?lang=be" class="lang"><img src="http://<?php echo $site; ?>/Images/belarus.png" height="50em" alt="Belarussian"></a></li>
                 <li style="float: right;"><a href="?lang=ru" class="lang"><img src="http://<?php echo $site; ?>/Images/russia.jpg" height="50em" alt="Russian"></a></li>
-                <li style="float: right;"><a href="?lang=en" class="lang"><img src="http://<?php echo $site; ?>/Images/usa.png" height="50em" alt="English"></a></li>
+                <li style="float: right;"><a href="?lang=en" class="lang"><img src="http://<?php echo $site; ?>/Images/english.png" height="50em" alt="English"></a></li>
                 <li style="float: right;"><a href="http://<?php echo $site; ?>/Pages/about?lang=<?php echo $_GET['lang'] ?>" class="nava"><?php echo _("About"); ?></a></li>
             </ul>
         </nav>
