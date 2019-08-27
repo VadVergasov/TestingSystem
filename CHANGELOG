@@ -1,3 +1,5 @@
 -More types for answers are need.
 -Dynamic password for DB required.
--Added build script, which copies all needed files to build directory.
+-Fixed transaltion errors.
+-Fixed error on test page.
+-Removed white line on the right side of site.

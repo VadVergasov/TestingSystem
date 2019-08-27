@@ -74,7 +74,7 @@ readyscreen = Screen(name="Ready")
 def generateFile():
     """Generates final php page."""
     begin = (
-        "<?php\nrequire('../postgresql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('"
+        "<?php\ndefine('PROJECT_DIR', realpath('../'));\ndefine('LOCALE_DIR', PROJECT_DIR . '\Locale');\ndefine('DEFAULT_LOCALE', 'en');\n\nrequire('../GetText/gettext.inc');\n\n$encoding = 'UTF-8';\n\n$locale = (isset($_GET['lang'])) ? $_GET['lang'] : DEFAULT_LOCALE;\n\nT_setlocale(LC_MESSAGES, $locale);\n\nT_bindtextdomain($locale, LOCALE_DIR);\nT_bind_textdomain_codeset($locale, $encoding);\nT_textdomain($locale);\n\nrequire('../postgresql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('"
         + str(subject)
         + "');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['id'] == $number) {\n        $title = $row['name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
     )

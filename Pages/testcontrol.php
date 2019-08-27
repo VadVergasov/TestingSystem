@@ -22,14 +22,14 @@ if ($_GET["p"] == "") {
     ?>
 <h2><?php echo _("Tests are available in the following subjects:"); ?></h2>
 <ol>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Bel&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Belarussian"); ?></a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Math&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Math"); ?></a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Rus&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Russian"); ?></a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Eng&lang=<?php echo $_GET['lang'] ?>"><?php echo _("English"); ?></a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Geo&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Geography"); ?></a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Inf&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Informatics"); ?></a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Phy&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Physics"); ?></a></li>
-    <li><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>?p=Bio&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Biology"); ?></a></li>
+    <li><a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?p=Bel&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Belarussian"); ?></a></li>
+    <li><a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?p=Math&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Math"); ?></a></li>
+    <li><a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?p=Rus&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Russian"); ?></a></li>
+    <li><a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?p=Eng&lang=<?php echo $_GET['lang'] ?>"><?php echo _("English"); ?></a></li>
+    <li><a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?p=Geo&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Geography"); ?></a></li>
+    <li><a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?p=Inf&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Informatics"); ?></a></li>
+    <li><a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?p=Phy&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Physics"); ?></a></li>
+    <li><a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?p=Bio&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Biology"); ?></a></li>
 </ol>
 <?php
 } else {

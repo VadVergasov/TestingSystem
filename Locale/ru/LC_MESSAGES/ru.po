@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TestingSystem\n"
-"POT-Creation-Date: 2019-08-22 00:03+0300\n"
-"PO-Revision-Date: 2019-08-22 00:04+0300\n"
+"POT-Creation-Date: 2019-08-27 11:42+0300\n"
+"PO-Revision-Date: 2019-08-27 11:42+0300\n"
 "Last-Translator: Vadim Vergasov <vadim.vergasov2003@gmail.com>\n"
 "Language-Team: Vadim Vergasov vadim.vergasov2003@gmail.com\n"
 "Language: ru\n"
@@ -43,15 +43,16 @@ msgstr "Панель управления"
 msgid "Clear history"
 msgstr "Почистить историю"
 
-#: Pages/panel.php:44
+#: Pages/panel.php:44 Pages/response.php:22
 msgid "IP address"
 msgstr "IP адрес компьютера"
 
-#: Pages/panel.php:45
+#: Pages/panel.php:45 Pages/response.php:22
 msgid "Status"
 msgstr "Статус"
 
-#: Pages/panel.php:46 Pages/testcontrol.php:69 Pages/tests.php:56
+#: Pages/panel.php:46 Pages/response.php:22 Pages/testcontrol.php:69
+#: Pages/tests.php:56
 msgid "Test name"
 msgstr "Название теста"
 
@@ -109,7 +110,7 @@ msgstr "Описание теста"
 
 #: Pages/testcontrol.php:71
 msgid "Test delete"
-msgstr "Название теста"
+msgstr "Удалить тест"
 
 #: Templates/head.php:46 index.php:18
 msgid "Main"
