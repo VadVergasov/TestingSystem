@@ -43,7 +43,7 @@ while ($_POST[strval($i)]) {
 
 $score = max(0, $right) / $all * 100;
 
-addToHistory($_SERVER["REMOTE_ADDR"], "Правильных:" . $right . " Не правильных: " . $not_right, $_POST['Name']);
+addToHistory($_SERVER["REMOTE_ADDR"], "Правильных:" . $right . " из " . $all . " Не правильных: " . $not_right, $_POST['Name']);
 echo "<h1>Правильных ответов: " . $right . " из " . $all . "</h1>";
 echo "<h1>Не правильных ответов: " . $not_right . "</h1>";
 

@@ -21,3 +21,4 @@ mkdir %~dp0build\domains\TestingSystem\Inf
 mkdir %~dp0build\domains\TestingSystem\Math
 mkdir %~dp0build\domains\TestingSystem\Phy
 mkdir %~dp0build\domains\TestingSystem\Rus
+mkdir %~dp0build\domains\TestingSystem\program\dist\tests

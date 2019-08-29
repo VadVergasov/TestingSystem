@@ -481,6 +481,7 @@ def editQuest(inst):
         # Adding all UI elements to layout.
         layout.add_widget(subgrid)
         layout.add_widget(inp)
+
     # Adding to view our layout.
     view.add_widget(layout)
 

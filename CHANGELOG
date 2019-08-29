@@ -1,5 +1,5 @@
 -More types for answers are need.
 -Dynamic password for DB required.
 -Fixed transaltion errors.
--Fixed error on test page.
--Removed white line on the right side of site.
+-Added creation of folder, where exported files will be stored.
+-Added number of right variants in history log.
