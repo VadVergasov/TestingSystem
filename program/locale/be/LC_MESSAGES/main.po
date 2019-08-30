@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-08-21 14:22+0300\n"
-"PO-Revision-Date: 2019-08-21 14:25+0300\n"
+"POT-Creation-Date: 2019-08-30 10:54+0300\n"
+"PO-Revision-Date: 2019-08-30 10:55+0300\n"
 "Last-Translator: Vadim Vergasov <vadim.vergasov2003@gmail.com>\n"
 "Language-Team: \n"
 "Language: be\n"
@@ -26,103 +26,107 @@ msgstr "Iмя теста не можа быць пустым!"
 msgid "You didn't configure questions!"
 msgstr "Вы не наладзiлi пытаннi!"
 
-#: main.py:200 main.py:231 main.py:245
+#: main.py:200 main.py:233 main.py:247
 msgid "Check if server is running. Try again or ask for help."
 msgstr ""
 "Праверце, калі сервер працуе. Паспрабуйце зноў або папрасіце аб дапамозе."
 
-#: main.py:261 main.py:385 main.py:433 main.py:635
+#: main.py:230
+msgid "Test with this name already exists, change the name of the test"
+msgstr "Тэст з гэтым імем ужо існуе, змяніце назву тэсту"
+
+#: main.py:263 main.py:387 main.py:435 main.py:638
 msgid "Back"
 msgstr "Назад"
 
-#: main.py:272 main.py:369
+#: main.py:274 main.py:371
 msgid "Math"
 msgstr "Матыматыка"
 
-#: main.py:274 main.py:367
+#: main.py:276 main.py:369
 msgid "Russian"
 msgstr "Руская мова"
 
-#: main.py:276 main.py:368
+#: main.py:278 main.py:370
 msgid "Belarussian"
 msgstr "Беларуская мова"
 
-#: main.py:278 main.py:366
+#: main.py:280 main.py:368
 msgid "English"
 msgstr "Англійская мова"
 
-#: main.py:280 main.py:370
+#: main.py:282 main.py:372
 msgid "Geography"
 msgstr "Геаграфiя"
 
-#: main.py:282 main.py:371
+#: main.py:284 main.py:373
 msgid "Informatics"
 msgstr "Iнфармацiка"
 
-#: main.py:284 main.py:372
+#: main.py:286 main.py:374
 msgid "Physics"
 msgstr "Фiзiка"
 
-#: main.py:286 main.py:373
+#: main.py:288 main.py:375
 msgid "Biology"
 msgstr "Бiалогiя"
 
-#: main.py:362
+#: main.py:364
 msgid "Choose subject"
 msgstr "Выберыце прадмет"
 
-#: main.py:470
+#: main.py:472
 msgid "Answer number:"
 msgstr "Нумар адказу:"
 
-#: main.py:491 main.py:657
+#: main.py:494 main.py:660
 msgid "Ready"
 msgstr "Гатова"
 
-#: main.py:545
+#: main.py:548
 msgid "Configuring question"
 msgstr "Настройка пытання"
 
-#: main.py:553
+#: main.py:556
 msgid "Write question here:"
 msgstr "Напiшыце пытанне тут:"
 
-#: main.py:559
+#: main.py:562
 msgid "Number of answers:"
 msgstr "Колькасць адказаў:"
 
-#: main.py:565 main.py:601
+#: main.py:568 main.py:604
 msgid "Close"
 msgstr "Зачыніць"
 
-#: main.py:569
+#: main.py:572
 msgid "Next"
 msgstr "Далей"
 
-#: main.py:593
+#: main.py:596
 msgid "Choose type"
 msgstr "Выберыце тып"
 
-#: main.py:606
+#: main.py:609
 msgid "Question with answer variants"
 msgstr "Пытанне з варыянтамi адказу"
 
-#: main.py:631
+#: main.py:634
 msgid "Import"
 msgstr "Дадаць з файла"
 
-#: main.py:639
+#: main.py:642
 msgid "Name of test"
 msgstr "Iмя теста"
 
-#: main.py:646
+#: main.py:649
 msgid "Test description"
 msgstr "Апiсанне теста"
 
-#: main.py:653
+#: main.py:656
 msgid "More"
 msgstr "Яшчэ"
 
-#: main.py:660
+#: main.py:663
 msgid "Export"
 msgstr "Экспарт у файл"

@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-08-21 14:22+0300\n"
-"PO-Revision-Date: 2019-08-21 14:26+0300\n"
+"POT-Creation-Date: 2019-08-30 10:54+0300\n"
+"PO-Revision-Date: 2019-08-30 10:56+0300\n"
 "Last-Translator: Vadim Vergasov <vadim.vergasov2003@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -26,103 +26,107 @@ msgstr "Имя теста не может быть пустым!"
 msgid "You didn't configure questions!"
 msgstr "Вы не настроили вопросы!"
 
-#: main.py:200 main.py:231 main.py:245
+#: main.py:200 main.py:233 main.py:247
 msgid "Check if server is running. Try again or ask for help."
 msgstr ""
 "Проверьте, запущен ли сервер. Попробуйте еще раз или попросите о помощи."
 
-#: main.py:261 main.py:385 main.py:433 main.py:635
+#: main.py:230
+msgid "Test with this name already exists, change the name of the test"
+msgstr "Тест с таким именем уде есть, измените название теста"
+
+#: main.py:263 main.py:387 main.py:435 main.py:638
 msgid "Back"
 msgstr "Назад"
 
-#: main.py:272 main.py:369
+#: main.py:274 main.py:371
 msgid "Math"
 msgstr "Математика"
 
-#: main.py:274 main.py:367
+#: main.py:276 main.py:369
 msgid "Russian"
 msgstr "Русский язык"
 
-#: main.py:276 main.py:368
+#: main.py:278 main.py:370
 msgid "Belarussian"
 msgstr "Белорусский язык"
 
-#: main.py:278 main.py:366
+#: main.py:280 main.py:368
 msgid "English"
 msgstr "Английский язык"
 
-#: main.py:280 main.py:370
+#: main.py:282 main.py:372
 msgid "Geography"
 msgstr "География"
 
-#: main.py:282 main.py:371
+#: main.py:284 main.py:373
 msgid "Informatics"
 msgstr "Информатика"
 
-#: main.py:284 main.py:372
+#: main.py:286 main.py:374
 msgid "Physics"
 msgstr "Физика"
 
-#: main.py:286 main.py:373
+#: main.py:288 main.py:375
 msgid "Biology"
 msgstr "Биология"
 
-#: main.py:362
+#: main.py:364
 msgid "Choose subject"
 msgstr "Выберете предмет"
 
-#: main.py:470
+#: main.py:472
 msgid "Answer number:"
 msgstr "Ответ номер:"
 
-#: main.py:491 main.py:657
+#: main.py:494 main.py:660
 msgid "Ready"
 msgstr "Готово"
 
-#: main.py:545
+#: main.py:548
 msgid "Configuring question"
 msgstr "Настройка вопроса"
 
-#: main.py:553
+#: main.py:556
 msgid "Write question here:"
 msgstr "Напишите вопрос здесь:"
 
-#: main.py:559
+#: main.py:562
 msgid "Number of answers:"
 msgstr "Количество вариантов ответа:"
 
-#: main.py:565 main.py:601
+#: main.py:568 main.py:604
 msgid "Close"
 msgstr "Закрыть"
 
-#: main.py:569
+#: main.py:572
 msgid "Next"
 msgstr "Далее"
 
-#: main.py:593
+#: main.py:596
 msgid "Choose type"
 msgstr "Выберете тип"
 
-#: main.py:606
+#: main.py:609
 msgid "Question with answer variants"
 msgstr "Вопрос с вариантами ответов"
 
-#: main.py:631
+#: main.py:634
 msgid "Import"
 msgstr "Добавить из файла"
 
-#: main.py:639
+#: main.py:642
 msgid "Name of test"
 msgstr "Название теста"
 
-#: main.py:646
+#: main.py:649
 msgid "Test description"
 msgstr "Описание теста"
 
-#: main.py:653
+#: main.py:656
 msgid "More"
 msgstr "Еще"
 
-#: main.py:660
+#: main.py:663
 msgid "Export"
 msgstr "Экспорт в файл"

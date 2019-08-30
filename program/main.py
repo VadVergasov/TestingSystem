@@ -200,10 +200,9 @@ def lastScreen(imp=False, *args):
             Ready.label.text += _(
                 "Check if server is running. Try again or ask for help."
             )
-            Ready.layout.add_widget(Ready.back)
         else:
             Ready.label.text += str(e)
-            Ready.layout.add_widget(Ready.back)
+        Ready.layout.add_widget(Ready.back)
         return
     try:
         cursor = conn.cursor()
@@ -227,9 +226,12 @@ def lastScreen(imp=False, *args):
         )
         cursor.close()
     except Exception as e:
-        Ready.label.text += (
-            str(e) + "\n " + _("Check if server is running. Try again or ask for help.")
-        )
+        if "duplicate key value violates unique" in str(e):
+            Ready.label.text += _("Test with this name already exists, change the name of the test")
+        else:
+            Ready.label.text += (
+                str(e) + "\n " + _("Check if server is running. Try again or ask for help.")
+            )
         Ready.layout.add_widget(Ready.back)
         return
     conn.commit()
