@@ -74,7 +74,7 @@ readyscreen = Screen(name="Ready")
 def generateFile():
     """Generates final php page."""
     begin = (
-        "<?php\ndefine('PROJECT_DIR', realpath('../'));\ndefine('LOCALE_DIR', PROJECT_DIR . '\Locale');\ndefine('DEFAULT_LOCALE', 'en');\n\nrequire('../GetText/gettext.inc');\n\n$encoding = 'UTF-8';\n\n$locale = (isset($_GET['lang'])) ? $_GET['lang'] : DEFAULT_LOCALE;\n\nT_setlocale(LC_MESSAGES, $locale);\n\nT_bindtextdomain($locale, LOCALE_DIR);\nT_bind_textdomain_codeset($locale, $encoding);\nT_textdomain($locale);\n\nrequire('../postgresql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('"
+        "<?php\ndefine('PROJECT_DIR', realpath('../'));\ndefine('LOCALE_DIR', PROJECT_DIR . '\\Locale');\ndefine('DEFAULT_LOCALE', 'en');\n\nrequire('../GetText/gettext.inc');\n\n$encoding = 'UTF-8';\n\n$locale = (isset($_GET['lang'])) ? $_GET['lang'] : DEFAULT_LOCALE;\n\nT_setlocale(LC_MESSAGES, $locale);\n\nT_bindtextdomain($locale, LOCALE_DIR);\nT_bind_textdomain_codeset($locale, $encoding);\nT_textdomain($locale);\n\nrequire('../postgresql.php');\n$number = basename(__FILE__, '.php');\n$title = '';\n$stmt = getTests('"
         + str(subject)
         + "');\nwhile ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {\n    if ($row['id'] == $number) {\n        $title = $row['name'];\n        break;\n    }\n}\nrequire('../Templates/head.php');\n?>\n"
     )
@@ -227,10 +227,14 @@ def lastScreen(imp=False, *args):
         cursor.close()
     except Exception as e:
         if "duplicate key value violates unique" in str(e):
-            Ready.label.text += _("Test with this name already exists, change the name of the test")
+            Ready.label.text += _(
+                "Test with this name already exists, change the name of the test"
+            )
         else:
             Ready.label.text += (
-                str(e) + "\n " + _("Check if server is running. Try again or ask for help.")
+                str(e)
+                + "\n "
+                + _("Check if server is running. Try again or ask for help.")
             )
         Ready.layout.add_widget(Ready.back)
         return
@@ -462,7 +466,10 @@ def editQuest(inst):
 
         # Input for answer text.
         inp = TextInput(
-            height=50, size_hint_y=None, text=questions[editQuest.quest.text][i]
+            height=50,
+            size_hint_y=None,
+            text=questions[editQuest.quest.text][i],
+            write_tab=False,
         )
 
         # Checkbox for correct/incorrect answer flag.
@@ -556,13 +563,15 @@ def addVariants(btn):
     addVariants.label = Label(text=_("Write question here:"), size_hint=(1, 0.2))
 
     # Text input for question.
-    addVariants.text = TextInput()
+    addVariants.text = TextInput(write_tab=False)
 
     # Label which indicates where input for number of answer is located.
     addVariants.number = Label(text=_("Number of answers:"), size_hint=(1, 0.2))
 
     # Text input for number of question.
-    addVariants.num = TextInput(input_filter="int", size_hint=(1, 0.4), multiline=False)
+    addVariants.num = TextInput(
+        input_filter="int", size_hint=(1, 0.4), multiline=False, write_tab=False
+    )
 
     # Close button.
     addVariants.button = Button(text=_("Close"), size_hint=(1, 0.5))
@@ -642,7 +651,7 @@ def Make():
     Make.name_text = Label(text=_("Name of test"), size_hint_y=None, height=40)
 
     # Test name input.
-    Make.name = TextInput(size_hint_y=None, height=40)
+    Make.name = TextInput(size_hint_y=None, height=40, write_tab=False)
 
     # Label which indicates where test description input locates.
     Make.description_text = Label(
@@ -650,7 +659,7 @@ def Make():
     )
 
     # Test description input.
-    Make.description = TextInput(size_hint_y=None, height=60)
+    Make.description = TextInput(size_hint_y=None, height=60, write_tab=False)
 
     # More button.
     Make.new = Button(text=_("More"), size_hint_y=None, height=60)
