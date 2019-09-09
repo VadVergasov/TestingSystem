@@ -7,7 +7,7 @@ require('../GetText/gettext.inc');
 
 $encoding = 'UTF-8';
 
-$locale = (isset($_GET['lang'])) ? $_GET['lang'] : DEFAULT_LOCALE;
+$locale = (isset($_COOKIE['lang'])) ? $_COOKIE['lang'] : DEFAULT_LOCALE;
 
 T_setlocale(LC_MESSAGES, $locale);
 
@@ -18,7 +18,7 @@ T_textdomain($locale);
 $title = "Error 404";
 require("../Templates/head.php");
 ?>
-<h1>Вы обратились по несуществющему адресу. Вернитесь назад или обратитесь к администратору.</h1>
+<h1><?php echo _("You have contacted a non-existent address. Go back or contact your administrator."); ?></h1>
 <?php
 require("../Templates/foot.php");
 ?>

@@ -1,3 +1,5 @@
 -More types for answers are need.
 -Dynamic password for DB required.
--Added error handling for duplicate name of test.
+-Now translation uses cookie, so there will be no errors with page reload.
+-Added translation for error pages.
+-Fixed Checkboxes in program: now they displays, where they were checked.

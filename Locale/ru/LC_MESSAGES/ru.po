@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TestingSystem\n"
-"POT-Creation-Date: 2019-08-27 11:42+0300\n"
-"PO-Revision-Date: 2019-08-27 11:42+0300\n"
+"POT-Creation-Date: 2019-09-09 22:43+0300\n"
+"PO-Revision-Date: 2019-09-09 22:43+0300\n"
 "Last-Translator: Vadim Vergasov <vadim.vergasov2003@gmail.com>\n"
 "Language-Team: Vadim Vergasov vadim.vergasov2003@gmail.com\n"
 "Language: ru\n"
@@ -18,7 +18,27 @@ msgstr ""
 "X-Poedit-SearchPath-1: Pages\n"
 "X-Poedit-SearchPath-2: Templates\n"
 
-#: Pages/about.php:18 Templates/head.php:62
+#: Pages/401.php:21
+msgid ""
+"To access this page, authentication is required. Reload the page or ask for "
+"help."
+msgstr ""
+"Для доступа к данной странице необходима аунтефикация. Перезагрузице "
+"страницу или обратитесь за помощью."
+
+#: Pages/403.php:21
+msgid "You are denied access to this part of the system."
+msgstr "Вам запрещен доступ к данной части системы."
+
+#: Pages/404.php:21
+msgid ""
+"You have contacted a non-existent address. Go back or contact your "
+"administrator."
+msgstr ""
+"Вы обратились по несуществющему адресу. Вернитесь назад или обратитесь к "
+"администратору."
+
+#: Pages/about.php:18 Templates/head.php:67
 msgid "About"
 msgstr "Про систему"
 
@@ -56,7 +76,7 @@ msgstr "Статус"
 msgid "Test name"
 msgstr "Название теста"
 
-#: Pages/testcontrol.php:20 Pages/tests.php:20 Templates/head.php:47
+#: Pages/testcontrol.php:20 Pages/tests.php:20 Templates/head.php:52
 msgid "Tests"
 msgstr "Тесты"
 
@@ -65,42 +85,42 @@ msgid "Tests are available in the following subjects:"
 msgstr "Доступны тесты по следующим предметам:"
 
 #: Pages/testcontrol.php:25 Pages/testcontrol.php:37 Pages/tests.php:25
-#: Pages/tests.php:37 Templates/head.php:49
+#: Pages/tests.php:37 Templates/head.php:54
 msgid "Belarussian"
 msgstr "Белорусский"
 
 #: Pages/testcontrol.php:26 Pages/testcontrol.php:43 Pages/tests.php:26
-#: Pages/tests.php:43 Templates/head.php:50
+#: Pages/tests.php:43 Templates/head.php:55
 msgid "Math"
 msgstr "Математика"
 
 #: Pages/testcontrol.php:27 Pages/testcontrol.php:41 Pages/tests.php:27
-#: Pages/tests.php:41 Templates/head.php:51
+#: Pages/tests.php:41 Templates/head.php:56
 msgid "Russian"
 msgstr "Русский язык"
 
 #: Pages/testcontrol.php:28 Pages/testcontrol.php:39 Pages/tests.php:28
-#: Pages/tests.php:39 Templates/head.php:52
+#: Pages/tests.php:39 Templates/head.php:57
 msgid "English"
 msgstr "Английский язык"
 
 #: Pages/testcontrol.php:29 Pages/testcontrol.php:47 Pages/tests.php:29
-#: Pages/tests.php:47 Templates/head.php:53
+#: Pages/tests.php:47 Templates/head.php:58
 msgid "Geography"
 msgstr "География"
 
 #: Pages/testcontrol.php:30 Pages/testcontrol.php:45 Pages/tests.php:30
-#: Pages/tests.php:45 Templates/head.php:54
+#: Pages/tests.php:45 Templates/head.php:59
 msgid "Informatics"
 msgstr "Информатика"
 
 #: Pages/testcontrol.php:31 Pages/testcontrol.php:49 Pages/tests.php:31
-#: Pages/tests.php:49 Templates/head.php:55
+#: Pages/tests.php:49 Templates/head.php:60
 msgid "Physics"
 msgstr "Физика"
 
 #: Pages/testcontrol.php:32 Pages/testcontrol.php:51 Pages/tests.php:32
-#: Pages/tests.php:51 Templates/head.php:56
+#: Pages/tests.php:51 Templates/head.php:61
 msgid "Biology"
 msgstr "Биология"
 
@@ -112,7 +132,7 @@ msgstr "Описание теста"
 msgid "Test delete"
 msgstr "Удалить тест"
 
-#: Templates/head.php:46 index.php:18
+#: Templates/head.php:51 index.php:18
 msgid "Main"
 msgstr "Главная"
 

@@ -23,6 +23,11 @@ if ($_SERVER['SERVER_PORT'] != 80) {
                 $site.removeAttr("hidden");
             }, 500);
         });
+
+        function setLang(value) {
+            document.cookie = "lang=" + value + ";domain=" + window.location.host.toString() + ";path=/";
+            location.reload();
+        }
     </script>
 </head>
 
@@ -42,24 +47,24 @@ if ($_SERVER['SERVER_PORT'] != 80) {
     <div id="site" hidden>
         <nav id="nav">
             <ul>
-                <li id="logo"><a href="http://<?php echo $site; ?>/?lang=<?php echo $_GET['lang'] ?>" style="padding: 0;"><img alt="Logo" src="../images/logo.png"></a></li>
-                <li><a href="http://<?php echo $site; ?>/?lang=<?php echo $_GET['lang'] ?>" class="nava"><?php echo _("Main"); ?></a></li>
-                <li><a href="http://<?php echo $site; ?>/Pages/tests?lang=<?php echo $_GET['lang'] ?>" class="nava"><?php echo _("Tests"); ?></a>
+                <li id="logo"><a href="http://<?php echo $site; ?>/" style="padding: 0;"><img alt="Logo" src="../images/logo.png"></a></li>
+                <li><a href="http://<?php echo $site; ?>/" class="nava"><?php echo _("Main"); ?></a></li>
+                <li><a href="http://<?php echo $site; ?>/Pages/tests" class="nava"><?php echo _("Tests"); ?></a>
                     <ul>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Bel&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Belarussian"); ?></a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Math&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Math"); ?></a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Rus&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Russian"); ?></a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Eng&lang=<?php echo $_GET['lang'] ?>"><?php echo _("English"); ?></a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Geo&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Geography"); ?></a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Inf&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Informatics"); ?></a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Phy&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Physics"); ?></a></li>
-                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Bio&lang=<?php echo $_GET['lang'] ?>"><?php echo _("Biology"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Bel"><?php echo _("Belarussian"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Math"><?php echo _("Math"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Rus"><?php echo _("Russian"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Eng"><?php echo _("English"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Geo"><?php echo _("Geography"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Inf"><?php echo _("Informatics"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Phy"><?php echo _("Physics"); ?></a></li>
+                        <li><a href="http://<?php echo $site; ?>/Pages/tests?p=Bio"><?php echo _("Biology"); ?></a></li>
                     </ul>
                 </li>
-                <li style="float: right;"><a href="?lang=be" class="lang"><img src="http://<?php echo $site; ?>/Images/belarus.png" height="50em" alt="Belarussian"></a></li>
-                <li style="float: right;"><a href="?lang=ru" class="lang"><img src="http://<?php echo $site; ?>/Images/russia.jpg" height="50em" alt="Russian"></a></li>
-                <li style="float: right;"><a href="?lang=en" class="lang"><img src="http://<?php echo $site; ?>/Images/english.png" height="50em" alt="English"></a></li>
-                <li style="float: right;"><a href="http://<?php echo $site; ?>/Pages/about?lang=<?php echo $_GET['lang'] ?>" class="nava"><?php echo _("About"); ?></a></li>
+                <li style="float: right;"><a onclick="setLang('be');" href="#" class="lang"><img src="http://<?php echo $site; ?>/Images/belarus.png" height="50em" alt="Belarussian"></a></li>
+                <li style="float: right;"><a onclick="setLang('ru');" href="#" class="lang"><img src="http://<?php echo $site; ?>/Images/russia.jpg" height="50em" alt="Russian"></a></li>
+                <li style="float: right;"><a onclick="setLang('en');" href="#" class="lang"><img src="http://<?php echo $site; ?>/Images/english.png" height="50em" alt="English"></a></li>
+                <li style="float: right;"><a href="http://<?php echo $site; ?>/Pages/abouts" class="nava"><?php echo _("About"); ?></a></li>
             </ul>
         </nav>
         <div id="content">

@@ -7,7 +7,7 @@ require('GetText/gettext.inc');
 
 $encoding = 'UTF-8';
 
-$locale = (isset($_GET['lang'])) ? $_GET['lang'] : DEFAULT_LOCALE;
+$locale = (isset($_COOKIE['lang'])) ? $_COOKIE['lang'] : DEFAULT_LOCALE;
 
 T_setlocale(LC_MESSAGES, $locale);
 

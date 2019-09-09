@@ -7,7 +7,7 @@ require('../GetText/gettext.inc');
 
 $encoding = 'UTF-8';
 
-$locale = (isset($_GET['lang'])) ? $_GET['lang'] : DEFAULT_LOCALE;
+$locale = (isset($_COOKIE['lang'])) ? $_COOKIE['lang'] : DEFAULT_LOCALE;
 
 T_setlocale(LC_MESSAGES, $locale);
 
@@ -18,7 +18,7 @@ T_textdomain($locale);
 $title = "Error 401";
 require("../Templates/head.php");
 ?>
-<h1>Для доступа к данной странице необходима аунтефикация. Перезагрузице страницу или обратитесь за помощью.</h1>
+<h1><?php echo _("To access this page, authentication is required. Reload the page or ask for help."); ?></h1>
 <?php
 require("../Templates/foot.php");
 ?>
